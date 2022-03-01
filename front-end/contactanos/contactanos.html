@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactanos</title>
+    <!--Hojas de estilo propias-->
+    <link rel="stylesheet" href="/contactanos/resources/css/style.css">
+
+    <!--CDN-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Iconos-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-danger navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="../index.html">La Cultura</a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Iniciar Sesion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrarse</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="cuadro">
+            <div class="card-group">
+                <div class="card">
+                    <h2>Queremos escucharte</h2>
+                    <form action="">
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Apellidos:</label>
+                            <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" name="apellidos" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Correo:</label>
+                            <input type="text" class="form-control" id="correo" placeholder="ejemplo@dominio.com" name="correo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Telefono:</label>
+                            <input type="number" class="form-control" id="Telefono" placeholder="2519451111" name="telefono" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment">Mensaje:</label>
+                            <textarea class="form-control" rows="5" id="mensaje"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4478.163464192762!2d-97.77204768014167!3d19.296642134104474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c5560deffce179%3A0x6654f289ea890152!2sPapeleria%20Y%20Novedades%20%22La%20Cultura%22!5e0!3m2!1ses!2smx!4v1646089876954!5m2!1ses!2smx"
+                        style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                    <br>
+                    <p>Papeleria Y Novedades "La Cultura"</p>
+                    <p><i class="material-icons">&#xe55e;</i> Tlahuicole 5 Barrio de Alta Luz Cuapiaxtla Tlaxcala</p>
+                    <p><i class="material-icons">&#xe8c5;</i> 2761163782</p>
+                    <p><i class="material-icons">&#xe0be;</i> laculturasat@gmail.com</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
