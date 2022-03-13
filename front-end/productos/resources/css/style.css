@@ -24,6 +24,11 @@
     margin-bottom: 5%;
 }
 
+.productos a {
+    text-decoration: none;
+    color: black;
+}
+
 footer {
     width: 100%;
     background-color: rgb(6, 29, 97);
@@ -37,4 +42,20 @@ footer a {
 footer a:hover {
     color: white;
     text-decoration: none;
+}
+
+
+/*producto*/
+
+.producto {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.producto .prueba img {
+    width: 90%;
+}
+
+.producto input {
+    width: 50%;
 }

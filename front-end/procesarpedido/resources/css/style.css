@@ -1,0 +1,36 @@
+body {
+    background-image: url(http://drive.google.com/uc?export=view&id=14B4bEaxKdwuMHTELlHLYSl6wWRpgHm0W);
+    background-size: 100%;
+}
+
+.cuadro {
+    background: rgb(6, 29, 97, 0.65);
+    margin-top: 6%;
+    margin-bottom: 7%;
+    color: white;
+    padding: 3%;
+}
+
+.row .alinear input {
+    width: 50%;
+}
+
+.text-center {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+footer {
+    width: 100%;
+    background-color: rgb(6, 29, 97);
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: none;
+}

@@ -1,5 +1,11 @@
+body {
+    background-image: url(http://drive.google.com/uc?export=view&id=1osds9-uPWTRt4ePtuMMvQB_Q14dKnBmY);
+    background-size: 100%;
+}
+
 .cuadro {
     height: 65vh;
+    background-color: transparent;
 }
 
 .cuadro .botones {
@@ -11,6 +17,7 @@
     margin-left: 20%;
     margin-right: 20%;
     padding: 3%;
+    background-color: transparent;
 }
 
 .registro {
