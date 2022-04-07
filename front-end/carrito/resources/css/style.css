@@ -1,0 +1,25 @@
+table tr td {
+    border-bottom: 1px solid #DE5B6D;
+}
+
+footer {
+    width: 100%;
+    background-color: rgb(6, 29, 97);
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 1200px) {
+    table img {
+        width: 60px;
+        height: 60px;
+    }
+}
