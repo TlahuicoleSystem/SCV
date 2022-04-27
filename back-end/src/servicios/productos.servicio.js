@@ -12,6 +12,17 @@ export const consultarProductos = async() => {
     return listaProductos
 }
 
+export const consultarUnidad = async(codigo_barras) => {
+    let listaProductos = null
+    try {
+        const conn = await getConnetion()
+        listaProductos = await conn.query(queries.consultaru, codigo_barras)
+    } catch (e) {
+        throw e.message
+    }
+    return listaProductos
+}
+
 
 //insert products
 
@@ -27,17 +38,6 @@ export const insertarProductos = async(product) => {
     return idNewProduct
 }
 
-//insert products
-
-export const insertarImagen = async(product) => {
-    let idNewProduct = null
-    try {
-
-    } catch (e) {
-        throw e.message
-    }
-    return idNewProduct
-}
 
 //uodate products
 

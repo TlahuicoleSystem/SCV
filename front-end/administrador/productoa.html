@@ -25,6 +25,8 @@
 
     <!--Iconos-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="resources/JS/modificar.js"></script>
 </head>
 
 <body>
@@ -44,81 +46,82 @@
         <div class="text-left titulo h5">
             ¡Para actualizar cambia los datos en el formulario y da click en actualizar!
         </div>
-        <form action="">
-            <div class="row ">
-                <div class="col-12 col-md-6 col">
-                    <img src="http://drive.google.com/uc?export=view&id=1sy0gBjDyL5IXkRRLfWVMcfxpa9N8or8i" class="img-fluid">
-                    <input type="file" class="form-control-file border" name="archivo" id="image" accept=".jpg, .png, .jpeg" required>
-                </div>
-                <div class="col-12 col-md-6 col">
-                    <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre" required>
+        <div class="row ">
+            <div class="col-12 col-md-6 col">
+                <form id="form-imagen">
+                    <img src="" class="img-fluid" id="imagen">
+                    <input type="file" class="form-control-file border" name="image" id="image" accept=".jpg, .png, .jpeg" required>
+                </form>
+            </div>
+            <div class="col-12 col-md-6 col">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre" required>
 
-                    </div>
-                    <div class="form-group">
-                        <label for="nombre">Codigo:</label>
-                        <input type="text" class="form-control" id="codigo" placeholder="Ingrese el codigo" name="codigo" required>
-                    </div>
                 </div>
-
-                <div class="col-12 col-md-6 col">
-                    <div class="form-group">
-                        <label for="nombre">Descripcion Corta:</label>
-                        <input type="text" class="form-control" id="precio" placeholder="Ingrese la descripcion corta" name="precio" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="nombre">ingrese la categoria:</label>
-                        <div class="form-check-inline">
-                            <label class="form-check-label" for="radio1">
-                                <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Artes
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label" for="radio2">
-                                <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2" checked>Oficina
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label" for="radio3">
-                                <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3" checked>Escolar
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-5">
-                            <div class="form-group">
-                                <label for="nombre">Precio:</label>
-                                <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio" name="precio" required>
-                            </div>
-                        </div>
-                        <div class="col-7">
-                            <div class="form-group">
-                                <label for="nombre">Existencia:</label>
-                                <input type="number" class="form-control" id="existencias" placeholder="Ingrese las existencias del producto" name="existencias" required>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="nombre">Codigo:</label>
+                    <input type="text" class="form-control" id="codigo" placeholder="Ingrese el codigo" name="codigo" required>
                 </div>
-                <div class="col-12 col-md-6 col">
-                    <div class="form-group">
-                        <label for="comment">Descripcion completa:</label>
-                        <textarea class="form-control" rows="7" id="comment" placeholder="Ingresa los punto separados por coma(,)"> </textarea>
-                    </div>
-                </div>
-                <div class="col-12 text-right">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-lg btn-outline-primary">Limpiar</button>
-                        <button type="submit" class="btn btn-lg btn-outline-success">Actualizar datos</button>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <br>
             </div>
 
-        </form>
+            <div class="col-12 col-md-6 col">
+                <div class="form-group">
+                    <label for="nombre">Descripcion Corta:</label>
+                    <input type="text" class="form-control" id="descripcion_breve" placeholder="Ingrese la descripcion corta" name="precio" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">ingrese la categoria:</label>
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="radio1">
+                                <input type="radio" class="form-check-input" id="categoria1" name="optradio" value="option1" checked>Artes
+                            </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="radio2">
+                                <input type="radio" class="form-check-input" id="categoria2" name="optradio" value="option2" checked>Oficina
+                            </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label" for="radio3">
+                                <input type="radio" class="form-check-input" id="categoria3" name="optradio" value="option3" checked>Escolar
+                            </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label for="nombre">Precio:</label>
+                            <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio" name="precio" required>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="form-group">
+                            <label for="nombre">Existencia:</label>
+                            <input type="number" class="form-control" id="existencias" placeholder="Ingrese las existencias del producto" name="existencias" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col">
+                <div class="form-group">
+                    <label for="comment">Descripcion completa:</label>
+                    <textarea class="form-control" rows="7" id="descripcion" placeholder="Ingresa los punto separados por coma(,)"> </textarea>
+                </div>
+            </div>
+            <div class="col-12 text-right">
+                <div class="btn-group">
+                    <button type="button" onclick="limpiar();" class="btn btn-lg btn-outline-primary">Limpiar</button>
+                    <button type="button" onclick="guardar();" class="btn btn-lg btn-outline-success">Actualizar datos</button>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+        </div>
+
+
     </div>
     <footer>
         <div class="container-lg">
