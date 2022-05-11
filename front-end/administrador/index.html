@@ -25,6 +25,8 @@
 
     <!--Iconos-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="resources/JS/eliminar.js"></script>
 </head>
 
 <body>
@@ -125,7 +127,7 @@
                     <h4 class="modal-title">Producto a modificar...</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form action="productoa.html" method="get">
+                <form action="productoa.html?categoria=todas" method="get">
                     <div class="modal-body">
                         <input type="text" class="form-control" id="codigo" placeholder="Ingrese el codigo del producto" name="codigo" required>
                     </div>
@@ -143,12 +145,12 @@
                     <h4 class="modal-title">Eliminar producto</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form action="productoa.html">
+                <form id="form-eliminarp">
                     <div class="modal-body">
-                        <input type="text" class="form-control" id="codigo" placeholder="Ingrese el codigo del producto" name="codigo" required>
+                        <input type="text" class="form-control" id="codigo-eliminar" placeholder="Ingrese el codigo del producto" name="codigo" required>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger">Eliminar el producto</button>
+                        <button type="button" class="btn btn-danger" onclick="eliminar();">Eliminar el producto</button>
                     </div>
                 </form>
             </div>

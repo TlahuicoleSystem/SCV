@@ -43,8 +43,6 @@ function recuperar(datos) {
             }
         }
     }
-
-
 }
 
 function guardar() {

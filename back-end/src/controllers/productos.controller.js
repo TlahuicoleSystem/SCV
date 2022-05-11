@@ -1,10 +1,12 @@
-import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad } from '../servicios/productos.servicio'
+import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente } from '../servicios/productos.servicio'
 
+//consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
     let respuesta = null
     let status = null
     try {
-        const productsList = await consultarProductos()
+        const { categoria } = req.query
+        const productsList = await consultarProductos(categoria)
         respuesta = {
             success: true,
             data: productsList,
@@ -23,6 +25,7 @@ export const consultarP = async(req, res) => {
     res.json(respuesta)
 }
 
+//consultar un unico producto
 export const consultarU = async(req, res) => {
     let respuesta = null
     let status = null
@@ -152,6 +155,58 @@ export const eliminarP = async(req, res) => {
         status = 400
     }
 
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const insertarC = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const cliente = req.body
+
+        const id = await insertarClientes(cliente)
+        respuesta = {
+            success: true,
+            data: id,
+            message: "Cliente agregado"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: true,
+            data: null,
+            message: "Cliente no agregado",
+            exception: e
+        }
+        status = 400
+    }
+
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const consultarC = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const { correo } = req.body
+        const { contraseña } = req.body
+        const id = await consultarCliente(correo, contraseña)
+        respuesta = {
+            success: true,
+            data: id,
+            message: "Lista de clientes"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron clientes"
+        }
+        status = 400
+    }
     res.status(status)
     res.json(respuesta)
 }

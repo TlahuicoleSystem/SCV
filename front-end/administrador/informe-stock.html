@@ -25,6 +25,8 @@
 
     <!--Iconos-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="resources/js/stock.js"></script>
 </head>
 
 <body>
@@ -40,11 +42,11 @@
         <div class="dropdown dropright">
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Categorias</button>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Artes</a>
-                <a class="dropdown-item" href="#">Oficina</a>
-                <a class="dropdown-item" href="#">Escolar</a>
+                <button type="button" class="dropdown-item" onclick="artes();">Artes</button>
+                <button type="button" class="dropdown-item" onclick="oficina();">Oficina</button>
+                <button type="button" class="dropdown-item" onclick="escolar();">Escolar</button>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Todas</a>
+                <button type="button" class="dropdown-item" onclick="todas();">Todas</button>
             </div>
         </div>
         <br><br><br>
@@ -53,102 +55,13 @@
                 <thead>
                     <tr>
                         <th>Codigo</th>
-                        <th>Productos</th>
+                        <th>Nombre</th>
                         <th>Categoria</th>
                         <th>Existencias</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>Libreta Profesioanl C.7</td>
-                        <td>Escolar</td>
-                        <td>145</td>
-                    </tr>
+                <tbody id="contenido">
+                    <!--Aqui se llena la tabla de manera dinamica en el js-->
                 </tbody>
             </table>
         </div>

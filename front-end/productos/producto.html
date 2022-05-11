@@ -26,6 +26,8 @@
 
     <!--Iconos-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="resources/js/producto.js"></script>
 </head>
 
 <body>
@@ -56,21 +58,19 @@
     <!--contenedor para los productos-->
     <div class="container-lg producto">
         <div class="row">
-            <div class="col-sm-5 prueba">
-                <img src="http://drive.google.com/uc?export=view&id=1sy0gBjDyL5IXkRRLfWVMcfxpa9N8or8i" class="img-fluid" alt="mision"> </div>
+            <div class="col-sm-5 prueba" id="imagen">
+                <img src="" class="img-fluid" alt="mision"> </div>
             <div class="col-sm-7 prueba">
-                <h2>Profesional Estrella C.7</h2>
-                <p>Cuaderno Profesional Estrella 100h C.7 <br>ID:0000</p>
-                <h3>$ 30.00</h3>
+                <div class="encabezado" id="encabezado">
+
+                </div>
+
                 <p>
-                    <ul>
-                        <li>Cuaderno tamaño profesional</li>
-                        <li>100 hojas</li>
-                        <li>Cuadro 7mm (Cuadro Grande)</li>
-                        <li>Hojas de 75gr/metro cuadrado</li>
-                        <li>Lomo cosido</li>
-                        <li>Marca Estrella</li>
-                        <li>Categoria: Escolar</li>
+                    <ul id="lista">
+
+                    </ul>
+                    <ul id="cate">
+
                     </ul>
                 </p>
                 <form action="../procesarpedido/procesar.html">

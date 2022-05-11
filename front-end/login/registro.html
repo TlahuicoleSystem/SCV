@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -62,7 +62,7 @@
             </div>
             <div class="registro" id="registro">
                 <div class="card carta1">
-                    <form action="">
+                    <form>
                         <div class="form-group">
                             <label for="nombre">Nombre:</label>
                             <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
@@ -72,39 +72,43 @@
                             <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" name="apellidos" required>
                         </div>
                         <div class="form-group">
+                            <label for="pwd">Telefono:</label>
+                            <input type="number" class="form-control" id="telefono" placeholder="1234567891" name="telefono" required>
+                        </div>
+                        <div class="form-group">
                             <label for="pwd">Correo:</label>
                             <input type="text" class="form-control" id="correo" placeholder="ejemplo@dominio.com" name="correo" required>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Contraseña:</label>
-                            <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" name="contraseña" required>
+                            <input type="text" class="form-control" id="contraseña" placeholder="Contraseña" name="contraseña" required>
                         </div>
                         <div class="form-group">
                             <label for="ccontraseña">Confirmar Contraseña:</label>
-                            <input type="password" class="form-control" id="ccontraseña" placeholder="Confirmar Contraseña" name="ccontraseña" required>
+                            <input type="text" class="form-control" id="contraseña2" placeholder="Confirmar Contraseña" name="ccontraseña2" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                        <button type="button" onclick="guardar();" class="btn btn-primary">Registrarse</button>
                     </form>
                 </div>
             </div>
             <div class="login" id="login">
                 <div class="card carta2">
-                    <form action="">
+                    <form>
                         <div class="form-group">
                             <label for="pwd">Correo:</label>
-                            <input type="text" class="form-control" id="correo" placeholder="ejemplo@dominio.com" name="correo" required>
+                            <input type="text" class="form-control" id="correo2" placeholder="ejemplo@dominio.com" name="correo3" required>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Contraseña:</label>
-                            <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" name="contraseña" required>
+                            <input type="text" class="form-control" id="contraseña3" placeholder="Contraseña" name="contraseña3" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                        <button type="button" onclick="entrar()" class="btn btn-primary">Ingresar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
+    <br><br><br><br><br><br><br>
     <footer>
         <div class="container-lg">
             <div class="row">
