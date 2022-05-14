@@ -99,3 +99,15 @@ export const consultarCliente = async(correo, contraseña) => {
     }
     return id
 }
+
+export const consultarClientes = async() => {
+    let listClients = null
+    try {
+        const conn = await getConnetion()
+        listClients = await conn.query(queries.consultarcs)
+
+    } catch (e) {
+        throw e.message
+    }
+    return listClients
+}

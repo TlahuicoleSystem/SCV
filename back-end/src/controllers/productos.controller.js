@@ -1,4 +1,4 @@
-import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente } from '../servicios/productos.servicio'
+import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes } from '../servicios/productos.servicio'
 
 //consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
@@ -196,6 +196,29 @@ export const consultarC = async(req, res) => {
         respuesta = {
             success: true,
             data: id,
+            message: "Lista de clientes"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron clientes"
+        }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const consultarCS = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const listClients = await consultarClientes()
+        respuesta = {
+            success: true,
+            data: listClients,
             message: "Lista de clientes"
         }
         status = 200

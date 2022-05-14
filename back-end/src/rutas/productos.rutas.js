@@ -1,5 +1,5 @@
   import { Router } from 'express'
-  import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC } from '../controllers/productos.controller'
+  import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS } from '../controllers/productos.controller'
 
   const upload = require('../libs/storage')
 
@@ -13,7 +13,8 @@
 
 
   router.post("/insertarC", insertarC) //insertar clientes
-  router.post("/consultarC", consultarC) //consultar clientes
+  router.post("/consultarC", consultarC) //consultar cliente para el login
+  router.get("/consultarCS", consultarCS) //consultar lista de los clientes
 
   router.post("/insertarI", upload.single('image'), insertarI)
 

@@ -1,4 +1,4 @@
-fetch(`http://localhost:5000/scv/consultarC`, {
+fetch(`http://localhost:5000/scv/consultarCS`, {
         method: 'GET'
     })
     .then(res => res.json())

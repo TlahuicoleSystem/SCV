@@ -8,4 +8,5 @@ export const queries = {
 
     agregaru: 'INSERT INTO clientes set ?',
     consultarc: 'SELECT id FROM clientes WHERE correo = ? and contraseña = ?',
+    consultarcs: 'SELECT * FROM clientes'
 }
