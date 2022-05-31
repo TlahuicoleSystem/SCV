@@ -1,28 +1,34 @@
 function entrar() {
     var correo = document.getElementById("correo2").value;
     var contraseña = document.getElementById("contraseñaL").value;
-    console.log(correo + "  " + contraseña)
     const cuerpo = new URLSearchParams("correo=" + correo);
     cuerpo.append('contraseña', contraseña);
-    fetch('http://localhost:5000/scv/consultarC', {
+    fetch(`http://localhost:5000/scv/consultarC`, {
             method: 'POST',
+            //headers: { 'Content-Type': 'multipart/form-data' },
             body: cuerpo
         })
-        .then(function(response) {
-            if (response.ok) {
-                return response.text()
-            } else {
-                throw "Error en la llamada";
-            }
-        })
-        .then(function(texto) {
-            console.log(texto);
-            alert("Bienvenido")
+        .then(res => res.json())
+        .then(datos => {
+            prueba(datos)
         })
         .catch(function(err) {
             console.log(err);
-            alert("Lo sentimos correo o contraseña invalidos")
+            alert("Lo sentimos ocurrio un error inesperado, intente de nuevo")
+            sessionStorage.setItem("cliente", null);
+            sessionStorage.setItem("nombre", null);
         });
+}
+
+function prueba(datos) {
+    if (datos.data == "") {
+        alert("Lo sentimos contraseña o correo invalido")
+        sessionStorage.setItem("cliente", null);
+        sessionStorage.setItem("nombre", null);
+    } else {
+        sessionStorage.setItem("cliente", datos.data[0].idCliente);
+        sessionStorage.setItem("nombre", datos.data[0].nombre);
+    }
 }
 
 function guardar() {
@@ -34,7 +40,6 @@ function guardar() {
         var correo = document.getElementById("correo").value;
         var contraseña = document.getElementById("contraseña").value;
         var telefono = document.getElementById("telefono").value;
-
         const cuerpo = new URLSearchParams("nombre=" + nombre);
         cuerpo.append('apellidos', apellidos);
         cuerpo.append('correo', correo);

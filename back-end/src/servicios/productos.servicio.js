@@ -105,9 +105,66 @@ export const consultarClientes = async() => {
     try {
         const conn = await getConnetion()
         listClients = await conn.query(queries.consultarcs)
-
     } catch (e) {
         throw e.message
     }
     return listClients
 }
+
+//guardar la direccion
+export const insertarDireccion = async(direccion) => {
+    let idDireccion = null
+    try {
+        const conn = await getConnetion()
+        const result = await conn.query(queries.denvio, direccion)
+        idDireccion = result.insertId
+    } catch (e) {
+        throw e.message
+    }
+    return idDireccion
+}
+
+//guardar el metodo de pago
+export const insertarPago = async(pago) => {
+    let idPago = null
+    try {
+        const conn = await getConnetion()
+        const result = await conn.query(queries.mPago, pago)
+        idPago = result.insertId
+    } catch (e) {
+        throw e.message
+    }
+    return idPago
+}
+
+
+//guardar el pedido
+export const insertarPedido = async(pedido) => {
+    let idPedido = null
+    try {
+        const conn = await getConnetion()
+        const result = await conn.query(queries.insertPedido, pedido)
+        idPedido = result.insertId
+    } catch (e) {
+        throw e.message
+    }
+    return idPedido
+}
+
+/*
+//consultar el pedido
+export const consultarPe = async(
+
+
+
+) => {
+    let idPedido = null
+    try {
+        const conn = await getConnetion()
+        const result = await conn.query(queries.insertPedido, pedido)
+        idPedido = result.insertId
+    } catch (e) {
+        throw e.message
+    }
+    return idPedido
+} */

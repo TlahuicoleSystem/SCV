@@ -1,3 +1,24 @@
+.navbar {
+    color: white;
+}
+
+.navbar i {
+    color: white;
+    font-size: 3.0vh;
+}
+
+.navbar .carro {
+    padding-top: 1.7%;
+}
+
+.navbar input {
+    width: 80%!important;
+}
+
+.navbar .nav-item {
+    padding-top: 1.1%;
+}
+
 body {
     background-image: url(http://drive.google.com/uc?export=view&id=14B4bEaxKdwuMHTELlHLYSl6wWRpgHm0W);
     background-size: 100%;
@@ -8,7 +29,10 @@ body {
     margin-top: 6%;
     margin-bottom: 7%;
     color: white;
-    padding: 3%;
+    padding-left: 7%;
+    padding-right: 7%;
+    padding-top: 3%;
+    padding-bottom: 5%;
 }
 
 .row .alinear input {
@@ -18,6 +42,10 @@ body {
 .text-center {
     padding-left: 15%;
     padding-right: 15%;
+}
+
+.pago {
+    display: none;
 }
 
 footer {

@@ -7,6 +7,12 @@ export const queries = {
     eliminar: 'DELETE FROM productos WHERE codigo_barras = ?',
 
     agregaru: 'INSERT INTO clientes set ?',
-    consultarc: 'SELECT id FROM clientes WHERE correo = ? and contraseña = ?',
-    consultarcs: 'SELECT * FROM clientes'
+    consultarc: 'SELECT idCliente, nombre FROM clientes WHERE correo = ? and contraseña = ?',
+    consultarcs: 'SELECT * FROM clientes',
+
+    mPago: 'INSERT INTO formapago set ?',
+    denvio: 'INSERT INTO direccionenvio set ?',
+    insertPedido: 'INSERT INTO pedidos SET ?',
+    reporteVentas: 'SELECT pedidos.idPedido, productos.nombre, pedidos.idCliente, pedidos.total, pedidos.fechap FROM pedidos INNER JOIN productos ON pedidos.codigoBarras = productos.codigo_barras WHERE pedidos.fechap BETWEEN ? AND ?'
+
 }

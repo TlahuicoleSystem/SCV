@@ -1,4 +1,4 @@
-import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes } from '../servicios/productos.servicio'
+import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes, insertarDireccion, insertarPedido, insertarPago, consultarPe } from '../servicios/productos.servicio'
 
 //consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
@@ -216,6 +216,116 @@ export const consultarCS = async(req, res) => {
     let status = null
     try {
         const listClients = await consultarClientes()
+        respuesta = {
+            success: true,
+            data: listClients,
+            message: "Lista de clientes"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron clientes"
+        }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+//insertar direccion de envio
+export const insertarD = async(req, res) => {
+
+    let respuesta = null
+    let status = null
+    try {
+        const direccion = req.body
+
+        const id = await insertarDireccion(direccion)
+        respuesta = {
+            success: true,
+            data: id,
+            message: "Direccion insertada"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: true,
+            data: null,
+            message: "direccion no insertada",
+            exception: e
+        }
+        status = 400
+    }
+
+    res.status(status)
+    res.json(respuesta)
+}
+
+//insertar pago
+export const insertarPa = async(req, res) => {
+
+    let respuesta = null
+    let status = null
+    try {
+        const pago = req.body
+
+        const id = await insertarPago(pago)
+        respuesta = {
+            success: true,
+            data: id,
+            message: "Pago agregado"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: true,
+            data: null,
+            message: "Pago no agregado",
+            exception: e
+        }
+        status = 400
+    }
+
+    res.status(status)
+    res.json(respuesta)
+}
+
+//insertar pedido
+export const insertarPe = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const pedido = req.body
+        const id = await insertarPedido(pedido)
+        respuesta = {
+            success: true,
+            data: id,
+            message: "Pedido guardado"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: true,
+            data: null,
+            message: "Pedido no guardado",
+            exception: e
+        }
+        status = 400
+    }
+
+    res.status(status)
+    res.json(respuesta)
+}
+
+
+//consultar pedido
+export const consultarPed = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const listClients = await consultarPe()
         respuesta = {
             success: true,
             data: listClients,

@@ -1,3 +1,6 @@
+var cliente = sessionStorage.getItem("cliente");
+var nombre = sessionStorage.getItem("nombre");
+document.getElementById("nombreNav").innerHTML = `<p>Hola ${nombre}</p>`
 fetch(`http://localhost:5000/scv/consultar?categoria=` + "todas", {
         method: 'GET'
     })
@@ -12,8 +15,8 @@ fetch(`http://localhost:5000/scv/consultar?categoria=` + "todas", {
 
 
 function recuperar(datos) {
-    var contenido = document.getElementById("contenido")
 
+    var contenido = document.getElementById("contenido")
     for (let valor of datos.data) {
         contenido.innerHTML += `
         <div class="col-6 col-sm-6 col-md-4 col-lg-3">

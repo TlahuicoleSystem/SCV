@@ -38,17 +38,39 @@
         </button>
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="../productos/productos.html">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../login/registro.html">Iniciar Sesion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../login/registro.html">Registrarse</a>
-                </li>
-            </ul>
+            <div class="row w-100">
+                <div class="col-md-4">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../productos/productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../login/registro.html">Iniciar Sesion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../login/registro.html">Registrarse</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 ">
+                    <form class="form-inline text-right ">
+                        <input class="form-control" type="text" placeholder="Buscar productos...">
+                        <button class="btn" type="button"><i class="material-icons">&#xe163;</i></button>
+                    </form>
+
+                </div>
+                <div class="col-md-4 text-right">
+                    <div class="row carro">
+                        <div class="col-11" id="nombreNav">
+
+                        </div>
+                        <div class="col-1">
+                            <i class="material-icons">&#xe8cc;</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -57,25 +79,30 @@
     <div class="container-lg producto">
         <br>
         <h2>Finalizar Pedido</h2>
-        <form action="">
-            <div class="row cuadro">
-                <div class="col-sm-6 prueba">
-                    <h3>Direccion de envio</h3>
-                    <div class="dropdown dropright">
-                        <button type="button" class=" btn-success dropdown-toggle" data-toggle="dropdown">Metodo de envio</button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Expres</a>
-                            <a class="dropdown-item" href="#">Ordinario</a>
-                        </div>
-                    </div>
+        <div class="direccionCli" id="direccionCli">
+            <form>
+                <div class="cuadro">
+                    <h3>Ingresa los datos para enviarte tus productos</h3>
 
                     <div class="form-group">
                         <label for="nombre">Nombre y apellidos:</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Josue Barrales" name="nombrep" required>
+                        <input type="text" class="form-control" id="nombreD" placeholder="Josue Barrales" name="nombrep" required>
                     </div>
-                    <div class="form-group">
-                        <label for="pwd">Telefono:</label>
-                        <input type="number" class="form-control" id="Telefono" placeholder="2519451111" name="telefono" required>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="pwd">Telefono:</label>
+                                <input type="number" class="form-control" id="telefono" placeholder="2519451111" name="telefono" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="sel1">Selecciona el metodo de envio:</label>
+                            <select class="form-control" id="tipoE" name="sellist1">
+                            <option>Expres</option>
+                            <option>Rapido</option>
+                            <option>Ordinario</option>
+                        </select>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="nombre">Calle:</label>
@@ -112,8 +139,15 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-sm-6 prueba">
+                <div class="text-center">
+                    <button type="button" onclick="continuar();" class="btn btn-success">Continuar con el Pago</button>
+                </div>
+                <br><br>
+            </form>
+        </div>
+        <div class="pago" id="pago">
+            <form>
+                <div class=" cuadro">
                     <h3>Metodo de pago</h3>
                     <div class="form-group">
                         <label for="nombre">Nombre y apellidos:</label>
@@ -132,12 +166,12 @@
                         <input type="number" class="form-control" id="codigos" placeholder="123" name="codigos" required>
                     </div>
                 </div>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-success">Finalizar</button>
-            </div>
-            <br><br>
-        </form>
+                <div class="text-center">
+                    <button type="button" onclick="finalizar();" class="btn btn-success">Finalizar</button>
+                </div>
+                <br><br>
+            </form>
+        </div>
 
     </div>
     <!--Pie de pagina-->
@@ -168,7 +202,7 @@
     </footer>
 
 
-
+    <script src="resources/js/main.js"></script>
 </body>
 
 </html>
