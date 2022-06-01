@@ -1,4 +1,4 @@
-import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto } from '../servicios/productos.servicio'
+import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto, insertarProductoCarrito, consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos } from '../servicios/productos.servicio'
 
 //consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
@@ -388,6 +388,138 @@ export const reporteAbi = async(req, res) => {
             success: false,
             data: null,
             message: "No se encontraron pedidos"
+        }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const insertarProdCarri = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const producto = req.body
+        console.log(producto)
+        const listVentas = await insertarProductoCarrito(producto)
+        respuesta = {
+            success: true,
+            data: listVentas,
+            message: "Producto agregado"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "Producto no agregado"
+        }
+        console.log(e)
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+//Reporte de los pedidos abiertos
+export const consultarCarri = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const { idCliente } = req.query
+        const listVentas = await consultarCarrito(idCliente)
+        respuesta = {
+            success: true,
+            data: listVentas,
+            message: "Lista de pedidos"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron pedidos"
+        }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+//eliminar carrito
+export const eliminarCarri = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const { idCliente } = req.query
+        await eliminarCarrito(idCliente)
+        respuesta = {
+            success: true,
+            data: null,
+            message: "carrito eliminado"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: true,
+            data: null,
+            message: "carrito no eliminado ",
+            exception: e
+        }
+        status = 400
+    }
+
+    res.status(status)
+    res.json(respuesta)
+}
+
+
+//eliminar un producto del carrito
+export const eliminarProdCarri = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const { idCliente } = req.query
+        const { codigoBarras } = req.query
+        console.log(idCliente, codigoBarras)
+        await eliminarProductoCarrito(idCliente, codigoBarras)
+        respuesta = {
+            success: true,
+            data: null,
+            message: "producto eliminado"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: true,
+            data: null,
+            message: "producto no eliminado ",
+            exception: e
+        }
+        status = 400
+    }
+
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const consultarFav = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const { codigo_barras } = req.query
+        const productsList = await consultarFavoritos()
+        respuesta = {
+            success: true,
+            data: productsList,
+            message: "Producto"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontro el producto"
         }
         status = 400
     }

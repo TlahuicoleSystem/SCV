@@ -1,3 +1,24 @@
+.navbar {
+    color: white;
+}
+
+.navbar i {
+    color: white;
+    font-size: 3.0vh;
+}
+
+.navbar .carro {
+    padding-top: 1.7%;
+}
+
+.navbar input {
+    width: 80%!important;
+}
+
+.navbar .nav-item {
+    padding-top: 1.1%;
+}
+
 table tr td {
     border-bottom: 1px solid #DE5B6D;
 }

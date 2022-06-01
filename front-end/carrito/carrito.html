@@ -27,7 +27,7 @@
     <!--Iconos-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script src="assets/js/main.js"></script>
+
 </head>
 
 <body>
@@ -42,7 +42,7 @@
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <div class="row w-100">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="../productos/productos.html">Productos</a>
@@ -56,11 +56,7 @@
                     </ul>
                 </div>
 
-                <div class="col-md-5 ">
-                    <form class="form-inline text-right ">
-                        <input class="form-control" type="text" placeholder="Buscar productos...">
-                        <button class="btn" type="button"><i class="material-icons">&#xe163;</i></button>
-                    </form>
+                <div class="col-md-4 ">
 
                 </div>
                 <div class="col-md-4 text-right">
@@ -69,7 +65,8 @@
 
                         </div>
                         <div class="col-1">
-                            <i class="material-icons">&#xe8cc;</i>
+                            <a href="../carrito/carrito.html">
+                                <i class="material-icons">&#xe8cc;</i></a>
                         </div>
                     </div>
                 </div>
@@ -98,56 +95,27 @@
                         <th>Importe</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="contenido">
                     <tr>
-                        <td class="text-center"><input type="checkbox" class="form-check-input" value=""></td>
+                        <td class="text-center"><button type="button" onclick="eliminar();"><i class="material-icons">&#xe16c;</i> </button></td>
                         <td><img src="http://drive.google.com/uc?export=view&id=1sy0gBjDyL5IXkRRLfWVMcfxpa9N8or8i" class="img-fluid"></td>
                         <td>Libreta Profesional C.7 100H</td>
                         <td>$20</td>
                         <td>5</td>
                         <td>$100</td>
                     </tr>
-                    <tr>
-                        <td class="text-center"><input type="checkbox" class="form-check-input" value=""></td>
-                        <td><img src="http://drive.google.com/uc?export=view&id=1sy0gBjDyL5IXkRRLfWVMcfxpa9N8or8i" class="img-fluid"></td>
-                        <td>Libreta Profesional C.7 100H</td>
-                        <td>$20</td>
-                        <td>5</td>
-                        <td>$100</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><input type="checkbox" class="form-check-input" value=""></td>
-                        <td><img src="http://drive.google.com/uc?export=view&id=1sy0gBjDyL5IXkRRLfWVMcfxpa9N8or8i" class="img-fluid"></td>
-                        <td>Libreta Profesional C.7 100H</td>
-                        <td>$20</td>
-                        <td>5</td>
-                        <td>$100</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><input type="checkbox" class="form-check-input" value=""></td>
-                        <td><img src="http://drive.google.com/uc?export=view&id=1sy0gBjDyL5IXkRRLfWVMcfxpa9N8or8i" class="img-fluid"></td>
-                        <td>Libreta Profesional C.7 100H</td>
-                        <td>$20</td>
-                        <td>5</td>
-                        <td>$100</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center"><input type="checkbox" class="form-check-input" value=""></td>
-                        <td><img src="http://drive.google.com/uc?export=view&id=1sy0gBjDyL5IXkRRLfWVMcfxpa9N8or8i" class="img-fluid"></td>
-                        <td>Libreta Profesional C.7 100H</td>
-                        <td>$20</td>
-                        <td>5</td>
-                        <td>$100</td>
-                    </tr>
+
                 </tbody>
             </table>
             <div class="col-12 text-right">
-                <div class="h4">Gran Total: $400</div>
+                <div class="precio" id="total">
+
+                </div>
                 <br>
                 <div class="btn-group">
-                    <button type="submit" class="btn btn-outline-primary">Limpiar</button>
+                    <button type="submit" onclick="limpiar();" class="btn btn-outline-primary">Limpiar</button>
                     <button type="button" class="btn btn-outline-danger">ELiminar</button>
-                    <button type="submit" class="btn btn-outline-success">Comprar</button>
+                    <button type="submit" onclick="guardar();" class="btn btn-outline-success">Comprar</button>
                 </div>
             </div>
             <br><br>
@@ -182,6 +150,7 @@
             </div>
         </div>
     </footer>
+    <script src="resources/js/main.js"></script>
 </body>
 
 </html>

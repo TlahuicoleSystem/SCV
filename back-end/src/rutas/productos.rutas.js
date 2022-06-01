@@ -1,5 +1,5 @@
   import { Router } from 'express'
-  import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS, insertarD, insertarPe, insertarPa, reporteVen, reporteCom, reporteAbi } from '../controllers/productos.controller'
+  import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS, insertarD, insertarPe, insertarPa, reporteVen, reporteCom, reporteAbi, insertarProdCarri, consultarCarri, eliminarCarri, eliminarProdCarri, consultarFav } from '../controllers/productos.controller'
 
   const upload = require('../libs/storage')
 
@@ -22,6 +22,13 @@
   router.get("/reportesVen", reporteVen) //reportes de ventas para administrador
   router.get("/reporteCom", reporteCom) //reporte de todas las compras del cliente
   router.get("/reporteAbi", reporteAbi) //reporte de los pedidos abiertos
+
+  router.post("/insertarCarr", insertarProdCarri) //insertar productos al carrito
+  router.get("/consultarCarri", consultarCarri) //consultar carrito
+  router.get("/eliminarCarri", eliminarCarri) //elimina todo el carrito de un cliente
+  router.get("/eliminarProdCarri", eliminarProdCarri) //eliminar un producto del carrito
+
+  router.get("/consultarFav", consultarFav) //consulta los favoritos
 
   router.post("/insertarI", upload.single('image'), insertarI)
 

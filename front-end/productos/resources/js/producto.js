@@ -61,6 +61,42 @@ function comprar() {
             window.location = "../procesarpedido/procesar.html?codido=" + codigoF + "&cantidad=" + cantidad + "&precio=" + precio;
         }
     }
+}
 
+function carrito() {
+
+    if (cliente == "null") {
+        alert("Ingresa para continuar")
+    } else {
+        if (document.getElementById("cantidad").value == "") {
+            alert("Selecciona una cantidad")
+        } else {
+            var cantidad = document.getElementById("cantidad").value;
+            const cuerpo = new URLSearchParams("codigoBarras=" + codigoF);
+            cuerpo.append('precio', precio)
+            cuerpo.append('cantidad', cantidad);
+            cuerpo.append('idCliente', cliente);
+            cuerpo.append('importe', precio * cantidad);
+            fetch('http://localhost:5000/scv/insertarCarr', {
+                    method: 'POST',
+                    body: cuerpo
+                })
+                .then(function(response) {
+                    if (response.ok) {
+                        return response.text()
+                    } else {
+                        throw "Error en la llamada";
+                    }
+                })
+                .then(function(texto) {
+                    console.log(texto);
+                    alert("Producto agregado al carrito")
+                })
+                .catch(function(err) {
+                    console.log(err);
+                    alert("Error el guardar el producto")
+                });
+        }
+    }
 
 }

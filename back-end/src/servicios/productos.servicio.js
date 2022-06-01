@@ -186,3 +186,59 @@ export const reporteAbierto = async(idCliente) => {
     }
     return lista
 }
+
+export const insertarProductoCarrito = async(producto) => {
+    let idNewProduct = null
+    try {
+        const conn = await getConnetion()
+        const result = await conn.query(queries.insertarProdCarri, producto)
+        idNewProduct = result.insertId
+    } catch (e) {
+        throw e.message
+    }
+    return idNewProduct
+}
+
+//Consultar carrito
+export const consultarCarrito = async(idCliente) => {
+    let lista = null
+    try {
+        const conn = await getConnetion()
+        lista = await conn.query(queries.consultarCarrito, idCliente)
+    } catch (e) {
+        throw e.message
+    }
+    return lista
+}
+
+//eliminar carrito
+export const eliminarCarrito = async idCliente => {
+    try {
+        const conn = await getConnetion()
+        await conn.query(queries.eliminarCarrito, idCliente)
+    } catch (e) {
+        throw e.message
+    }
+}
+
+//eliminar un solo productoscarrito
+export const eliminarProductoCarrito = async(idCliente, codigoBarras) => {
+    try {
+        const conn = await getConnetion()
+        console.log(idCliente, codigoBarras)
+        await conn.query(queries.eliminarProdCarri, [idCliente, codigoBarras])
+    } catch (e) {
+        throw e.message
+    }
+}
+
+export const consultarFavoritos = async() => {
+    let listaProductos = null
+    try {
+        const conn = await getConnetion()
+        listaProductos = await conn.query(queries.favoritos)
+    } catch (e) {
+        throw e.message
+    }
+    return listaProductos
+}

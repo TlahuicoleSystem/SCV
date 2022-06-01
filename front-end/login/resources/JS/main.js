@@ -1,3 +1,6 @@
+var cliente = sessionStorage.getItem("cliente");
+var nombre = sessionStorage.getItem("nombre");
+
 function entrar() {
     var correo = document.getElementById("correo2").value;
     var contraseña = document.getElementById("contraseñaL").value;
@@ -20,6 +23,7 @@ function entrar() {
         });
 }
 
+
 function prueba(datos) {
     if (datos.data == "") {
         alert("Lo sentimos contraseña o correo invalido")
@@ -28,6 +32,7 @@ function prueba(datos) {
     } else {
         sessionStorage.setItem("cliente", datos.data[0].idCliente);
         sessionStorage.setItem("nombre", datos.data[0].nombre);
+        alert("Bienvenido")
     }
 }
 
