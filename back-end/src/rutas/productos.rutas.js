@@ -1,5 +1,5 @@
   import { Router } from 'express'
-  import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS, insertarD, insertarPe, insertarPa, consultarPed } from '../controllers/productos.controller'
+  import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS, insertarD, insertarPe, insertarPa, reporteVen, reporteCom, reporteAbi } from '../controllers/productos.controller'
 
   const upload = require('../libs/storage')
 
@@ -19,7 +19,9 @@
   router.post("/insertarPa", insertarPa) //insertar forma de pago
   router.post("/insertarPe", insertarPe) //insertar pedido
 
-  router.get("consultarPed", consultarPed) //consultar pedidos
+  router.get("/reportesVen", reporteVen) //reportes de ventas para administrador
+  router.get("/reporteCom", reporteCom) //reporte de todas las compras del cliente
+  router.get("/reporteAbi", reporteAbi) //reporte de los pedidos abiertos
 
   router.post("/insertarI", upload.single('image'), insertarI)
 

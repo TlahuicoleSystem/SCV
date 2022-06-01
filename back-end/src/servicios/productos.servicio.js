@@ -151,20 +151,38 @@ export const insertarPedido = async(pedido) => {
     return idPedido
 }
 
-/*
-//consultar el pedido
-export const consultarPe = async(
-
-
-
-) => {
-    let idPedido = null
+//este metodo es para el reporte de ventas
+export const reporteVentas = async(inicio, fin) => {
+    let lista = null
     try {
         const conn = await getConnetion()
-        const result = await conn.query(queries.insertPedido, pedido)
-        idPedido = result.insertId
+        lista = await conn.query(queries.reporteVentas, [inicio, fin])
     } catch (e) {
         throw e.message
     }
-    return idPedido
-} */
+    return lista
+}
+
+//Reporte de todas las compras de un cliente
+export const reporteCompras = async(idCliente) => {
+    let lista = null
+    try {
+        const conn = await getConnetion()
+        lista = await conn.query(queries.reporteCompras, idCliente)
+    } catch (e) {
+        throw e.message
+    }
+    return lista
+}
+
+//Reporte de todas los pedidos abiertos
+export const reporteAbierto = async(idCliente) => {
+    let lista = null
+    try {
+        const conn = await getConnetion()
+        lista = await conn.query(queries.reporteOrden, idCliente)
+    } catch (e) {
+        throw e.message
+    }
+    return lista
+}

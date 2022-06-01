@@ -1,4 +1,4 @@
-import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes, insertarDireccion, insertarPedido, insertarPago, consultarPe } from '../servicios/productos.servicio'
+import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto } from '../servicios/productos.servicio'
 
 //consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
@@ -319,24 +319,75 @@ export const insertarPe = async(req, res) => {
     res.json(respuesta)
 }
 
-
-//consultar pedido
-export const consultarPed = async(req, res) => {
+//Reporte de ventas para el administrador
+export const reporteVen = async(req, res) => {
     let respuesta = null
     let status = null
     try {
-        const listClients = await consultarPe()
+        const { inicio } = req.query
+        const { fin } = req.query
+        const listVentas = await reporteVentas(inicio, fin)
         respuesta = {
             success: true,
-            data: listClients,
-            message: "Lista de clientes"
+            data: listVentas,
+            message: "Lista de ventas"
         }
         status = 200
     } catch (e) {
         respuesta = {
             success: false,
             data: null,
-            message: "No se encontraron clientes"
+            message: "No se encontraron ventas"
+        }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+//Reporte de las compras de un cliente
+export const reporteCom = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const { idCliente } = req.query
+        const listVentas = await reporteCompras(idCliente)
+        respuesta = {
+            success: true,
+            data: listVentas,
+            message: "Lista de compras"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron compras"
+        }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+//Reporte de los pedidos abiertos
+export const reporteAbi = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const { idCliente } = req.query
+        const listVentas = await reporteAbierto(idCliente)
+        respuesta = {
+            success: true,
+            data: listVentas,
+            message: "Lista de pedidos"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron pedidos"
         }
         status = 400
     }

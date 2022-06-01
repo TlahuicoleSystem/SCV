@@ -41,11 +41,14 @@
         <div class="row">
             <div class="col-md-3">
                 <label for="start">Inicio:</label>
-                <input type="date" id="start" name="trip-start" value="2018-07-22" min="2020-01-01" max="2022-12-31">
+                <input type="date" id="inicio" name="trip-start" value="2022-07-22" min="2020-01-01" max="2022-12-31">
             </div>
             <div class="col-md-3">
                 <label for="start">Final:</label>
-                <input type="date" id="start" name="trip-start" value="2018-07-22" min="2020-01-01" max="2022-12-31">
+                <input type="date" id="fin" name="trip-start" value="2022-07-22" min="2020-01-01" max="2022-12-31">
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-success" onclick="buscar();">Buscar </button>
             </div>
         </div>
 
@@ -55,118 +58,13 @@
                 <thead>
                     <tr>
                         <th>Num_pedido</th>
-                        <th>Productos</th>
+                        <th>Producto</th>
                         <th>Num_cliente</th>
                         <th>Total</th>
-                        <th>Fecha y hora</th>
+                        <th>Fecha</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
-                    <tr>
-                        <td>75087214</td>
-                        <td>5741575,25852645</td>
-                        <td>52414</td>
-                        <td>$899</td>
-                        <td>05/03/22 20:48:56</td>
-                    </tr>
+                <tbody id="contenido">
 
                 </tbody>
             </table>
@@ -182,6 +80,7 @@
             <br>
         </div>
     </footer>
+    <script src="resources/js/vemtas.js"></script>
 </body>
 
 </html>
