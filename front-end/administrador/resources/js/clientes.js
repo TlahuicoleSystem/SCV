@@ -17,7 +17,7 @@ function recuperar(datos) {
     for (let valor of datos.data) {
         contenido.innerHTML += `
         <tr>
-            <td>${valor.id}</td>
+            <td>${valor.idCliente}</td>
             <td>${valor.nombre}</td>
             <td>${valor.apellidos}</td>
             <td>${valor.telefono}</td>

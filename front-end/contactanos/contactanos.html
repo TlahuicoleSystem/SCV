@@ -48,6 +48,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../login/registro.html">Registrarse</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../perfil/perfil.html">Perfil</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -97,7 +100,7 @@
                             <label for="comment">Mensaje:</label>
                             <textarea class="form-control" rows="5" id="mensaje"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" onclick="enviar();" class="btn btn-primary">Enviar</button>
                     </form>
                 </div>
                 <div class="card">
@@ -143,6 +146,8 @@
         </div>
 
     </footer>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="resources/js/main.js"></script>
 </body>
 
 </html>

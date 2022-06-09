@@ -225,7 +225,6 @@ export const eliminarCarrito = async idCliente => {
 export const eliminarProductoCarrito = async(idCliente, codigoBarras) => {
     try {
         const conn = await getConnetion()
-        console.log(idCliente, codigoBarras)
         await conn.query(queries.eliminarProdCarri, [idCliente, codigoBarras])
     } catch (e) {
         throw e.message
@@ -240,5 +239,20 @@ export const consultarFavoritos = async() => {
     } catch (e) {
         throw e.message
     }
+    return listaProductos
+}
+
+//busqueda
+export const buscar = async(texto) => {
+    let listaProductos = null
+    try {
+        console.log(texto)
+        const conn = await getConnetion()
+        listaProductos = await conn.query(queries.buscar, texto)
+    } catch (e) {
+        throw e.message
+        console.log(e)
+    }
+
     return listaProductos
 }

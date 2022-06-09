@@ -52,13 +52,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="../login/registro.html">Registrarse</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../perfil/perfil.html">Perfil</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="col-md-4 ">
                     <form class="form-inline text-right ">
-                        <input class="form-control" type="text" placeholder="Buscar productos...">
-                        <button class="btn" type="button"><i class="material-icons">&#xe163;</i></button>
+                        <input class="form-control" id="entBuscar" type="text" placeholder="Buscar productos...">
+                        <button class="btn" type="button" onclick="buscar();"><i class="material-icons">&#xe163;</i></button>
                     </form>
 
                 </div>
@@ -91,6 +94,19 @@
 
     <!--contenedor para los productos-->
     <div class="container-lg">
+        <div class="text-left titulo h5">
+            ¡Selecciona una categoria!
+        </div>
+        <div class="dropdown dropright">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Categorias</button>
+            <div class="dropdown-menu">
+                <button type="button" class="dropdown-item" onclick="artes();">Artes</button>
+                <button type="button" class="dropdown-item" onclick="oficina();">Oficina</button>
+                <button type="button" class="dropdown-item" onclick="escolar();">Escolar</button>
+                <div class="dropdown-divider"></div>
+                <button type="button" class="dropdown-item" onclick="todas();">Todas</button>
+            </div>
+        </div>
         <div class="row productos" id="contenido">
             <!-- aqui se llenan los productos de manera dinamica  -->
         </div>

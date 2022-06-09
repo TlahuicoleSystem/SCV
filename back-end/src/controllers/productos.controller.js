@@ -1,4 +1,4 @@
-import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto, insertarProductoCarrito, consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos } from '../servicios/productos.servicio'
+import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto, insertarProductoCarrito, consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos, buscar } from '../servicios/productos.servicio'
 
 //consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
@@ -521,6 +521,32 @@ export const consultarFav = async(req, res) => {
             data: null,
             message: "No se encontro el producto"
         }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const buscarPro = async(req, res) => {
+    let respuesta = null
+    let status = null
+
+    try {
+        const { texto } = req.query
+        const productsList = await buscar(texto)
+        respuesta = {
+            success: true,
+            data: productsList,
+            message: "Productos encontrados"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron datos"
+        }
+        console.log(e)
         status = 400
     }
     res.status(status)

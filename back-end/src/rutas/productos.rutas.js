@@ -1,5 +1,5 @@
   import { Router } from 'express'
-  import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS, insertarD, insertarPe, insertarPa, reporteVen, reporteCom, reporteAbi, insertarProdCarri, consultarCarri, eliminarCarri, eliminarProdCarri, consultarFav } from '../controllers/productos.controller'
+  import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS, insertarD, insertarPe, insertarPa, reporteVen, reporteCom, reporteAbi, insertarProdCarri, consultarCarri, eliminarCarri, eliminarProdCarri, consultarFav, buscarPro } from '../controllers/productos.controller'
 
   const upload = require('../libs/storage')
 
@@ -29,6 +29,9 @@
   router.get("/eliminarProdCarri", eliminarProdCarri) //eliminar un producto del carrito
 
   router.get("/consultarFav", consultarFav) //consulta los favoritos
+
+
+  router.get("/buscar", buscarPro)
 
   router.post("/insertarI", upload.single('image'), insertarI)
 

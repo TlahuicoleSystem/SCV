@@ -23,5 +23,6 @@ export const queries = {
     eliminarCarrito: 'DELETE FROM carrito WHERE idCliente = ?',
     eliminarProdCarri: 'DELETE FROM carrito WHERE idCliente = ? AND codigoBarras = ?',
 
-    favoritos: 'SELECT pedidos.codigoBarras, productos.foto, productos.nombre, productos.descripcion_breve, COUNT( pedidos.codigoBarras ) AS total FROM pedidos INNER JOIN productos ON pedidos.codigoBarras = productos.codigo_barras GROUP BY pedidos.codigoBarras ORDER BY total DESC;'
+    favoritos: 'SELECT pedidos.codigoBarras, productos.foto, productos.nombre, productos.descripcion_breve, COUNT( pedidos.codigoBarras ) AS total FROM pedidos INNER JOIN productos ON pedidos.codigoBarras = productos.codigo_barras GROUP BY pedidos.codigoBarras ORDER BY total DESC',
+    buscar: 'SELECT codigo_barras, foto, nombre, descripcion_breve FROM productos WHERE nombre LIKE "%"?"%" '
 }
