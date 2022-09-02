@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La cultura</title>
+
+    <!--Hojas de estilo propias-->
+    <link rel="stylesheet" href="resources/assets/css/style.css">
+
+    <!--CDN-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Iconos-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md bg-danger navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html">La Cultura</a>
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <div class="row w-100">
+                <div class="col-md-3">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos/productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login/registro.html">Iniciar Sesion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login/registro.html">Registrarse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="perfil/perfil.html">Perfil</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-5 ">
+                    <form class="form-inline text-right ">
+                        <input class="form-control" id="entBuscar" type="text" placeholder="Buscar productos...">
+                        <button class="btn" type="button" onclick="buscar();"><i class="material-icons">&#xe163;</i></button>
+                    </form>
+
+                </div>
+                <div class="col-md-4 text-right">
+                    <div class="row carro">
+                        <div class="col-11" id="nombreNav">
+                        </div>
+                        <div class="col-1">
+                            <a href="carrito/carrito.html">
+                            <i class="material-icons">&#xe8cc;</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--carrusel principal-->
+    <div id="demo" class="carousel slide carrusel" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="http://drive.google.com/uc?export=view&id=1NfrWb-vjNp1-6-43Cn9mt4X7S2e4R8Dr" alt="carrusel1">
+                <div class="carousel-caption">
+                    <h3>Pascua</h3>
+                    <p>En la Cultura lo mejor de productos PASCUA</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="http://drive.google.com/uc?export=view&id=1riM6hwI1hR1lNZHY9_4mNNevMeY2XlLl" alt="Chicago">
+                <div class="carousel-caption">
+                    <h3>SMART</h3>
+                    <p>En la Cultura lo mejor de productos SMART</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="http://drive.google.com/uc?export=view&id=17C__WoMCb8PP7C3hC1RARQccGGM6lekn" alt="New York">
+                <div class="carousel-caption">
+                    <h3>BARRILITO</h3>
+                    <p>En la Cultura lo mejor de productos Barrilito</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+    <!--contenedor para los productos-->
+    <div class="container-lg">
+        <div class="row productos" id="contenido">
+
+        </div>
+    </div>
+    <!-- Pie de pagina -->
+    <footer>
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h3> La Cultura </h3>
+                    <br>
+                    <p><i class="material-icons">&#xe55e;</i> Tlahuicole 5 Barrio de Alta Luz Cuapiaxtla Tlaxcala</p>
+                    <p><i class="material-icons">&#xe8c5;</i> 2761163782</p>
+                    <a class="btn btn-success" href="mailto:laculturasat@gmail.com">Mandanos un Email</a>
+                </div>
+                <div class="col-sm-3">
+                    <h3>Enlaces</h3>
+                    <br>
+
+                    <p><i class="material-icons">&#xe88a;</i><a href="index.html">Inicio</a></p>
+                    <p><i class="material-icons">&#xe5c3;</i><a href="productos/productos.html">Productos</a></p>
+                    <p><i class="material-icons">&#xe7fb;</i><a href="contactanos/contactanos.html">Contactanos</a></p>
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="derechos text-center">
+                <h5>&copy; 2022 La Cultura. Todos los derechos reservados.</h55>
+            </div>
+        </div>
+
+    </footer>
+    <script src="resources/assets/css/favoritos.js"></script>
+</body>
+
+</html>

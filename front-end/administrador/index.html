@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La cultura</title>
+
+    <!--Hojas de estilo propias-->
+    <link rel="stylesheet" href="resources/css/style.css">
+
+    <!--CDN-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--Iconos-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script src="resources/JS/eliminar.js"></script>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="text-center display-4">
+            ¡Bienvenido!
+        </div>
+    </div>
+    <div class="tablero container">
+        <div class="text-left titulo h5 text-white">
+            Hola Josue ¿Que quieres hacer hoy?
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-4 col-md-3 col">
+                <a href="producto.html">
+                    <div class="card">
+                        <div class="cuadroInt">
+                            <p>Agregar producto Nuevo</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-4 col-md-3 col">
+                <a href="#" data-toggle="modal" data-target="#modal1">
+                    <div class="card">
+                        <div class="cuadroInt">
+                            <p>Modificar producto</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-4 col-md-3 col">
+                <a href="#" data-toggle="modal" data-target="#modal2">
+                    <div class="card">
+                        <div class="cuadroInt">
+                            <p>Eliminar producto</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-4 col-md-3 col">
+                <a href="informe-stock.html">
+                    <div class="card">
+                        <div class="cuadroInt">
+                            <p>Informe de stock</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-4 col-md-3 col">
+                <a href="informe-productos.html">
+                    <div class="card">
+                        <div class="cuadroInt">
+                            <p>Informe de productos</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-4 col-md-3 col">
+                <a href="informe-ventas.html">
+                    <div class="card">
+                        <div class="cuadroInt">
+                            <p>Informe de ventas</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-4 col-md-3 col">
+                <a href="informe-clientes.html">
+                    <div class="card">
+                        <div class="cuadroInt">
+                            <p>Informe de clientes</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <div class="container-lg">
+            <br>
+
+            <div class="derechos text-center">
+                <h5>&copy; 2022 La Cultura. Todos los derechos reservados.</h5>
+
+            </div>
+            <br>
+        </div>
+
+    </footer>
+    <div class="modal fade" id="modal1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Producto a modificar...</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form action="productoa.html?categoria=todas" method="get">
+                    <div class="modal-body">
+                        <input type="text" class="form-control" id="codigo" placeholder="Ingrese el codigo del producto" name="codigo" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-outline-success">Continuar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal2">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Eliminar producto</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form id="form-eliminarp">
+                    <div class="modal-body">
+                        <input type="text" class="form-control" id="codigo-eliminar" placeholder="Ingrese el codigo del producto" name="codigo" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" onclick="eliminar();">Eliminar el producto</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

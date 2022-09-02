@@ -1,0 +1,82 @@
+.navbar {
+    color: white;
+}
+
+.navbar i {
+    color: white;
+    font-size: 3.0vh;
+}
+
+.navbar .carro {
+    padding-top: 1.7%;
+}
+
+.navbar input {
+    width: 80%!important;
+}
+
+.navbar .nav-item {
+    padding-top: 1.1%;
+}
+
+.jumbotron {
+    background-color: #f1ca4a !important;
+}
+
+.jumbotron .texto {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.jumbotron .titulo {
+    font-size: 3.4vw;
+}
+
+.jumbotron .parrafo {
+    font-size: 2.0vw;
+}
+
+.productos {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.productos .card {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.productos a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    width: 100%;
+    background-color: rgb(6, 29, 97);
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+
+/*producto*/
+
+.producto {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.producto .prueba img {
+    width: 90%;
+}
+
+.producto input {
+    width: 50%;
+}
