@@ -1,6 +1,6 @@
 export const queries = {
-    consultar: 'SELECT * FROM productos',
-    consultarpc: 'SELECT * FROM productos WHERE categoria = ?',
+    consultar: 'SELECT * FROM productos WHERE existencias > 0',
+    consultarpc: 'SELECT * FROM productos WHERE categoria = ? AND existencias > 0',
     consultaru: 'SELECT * FROM productos WHERE codigo_barras = ?',
     insertar: 'INSERT INTO productos set ?',
     actualizar: 'UPDATE productos set ? WHERE codigo_barras = ?',
@@ -23,6 +23,6 @@ export const queries = {
     eliminarCarrito: 'DELETE FROM carrito WHERE idCliente = ?',
     eliminarProdCarri: 'DELETE FROM carrito WHERE idCliente = ? AND codigoBarras = ?',
 
-    favoritos: 'SELECT pedidos.codigoBarras, productos.foto, productos.nombre, productos.descripcion_breve, COUNT( pedidos.codigoBarras ) AS total FROM pedidos INNER JOIN productos ON pedidos.codigoBarras = productos.codigo_barras GROUP BY pedidos.codigoBarras ORDER BY total DESC',
-    buscar: 'SELECT codigo_barras, foto, nombre, descripcion_breve FROM productos WHERE nombre LIKE "%"?"%" '
+    favoritos: 'SELECT pedidos.codigoBarras, productos.foto, productos.nombre, productos.descripcion_breve, productos.precio, COUNT( pedidos.codigoBarras ) AS total FROM pedidos INNER JOIN productos ON pedidos.codigoBarras = productos.codigo_barras GROUP BY pedidos.codigoBarras ORDER BY total DESC',
+    buscar: 'SELECT codigo_barras, foto, nombre, descripcion_breve, precio FROM productos WHERE nombre LIKE "%"?"%" '
 }

@@ -1,6 +1,8 @@
 var cliente = sessionStorage.getItem("cliente");
 var nombre = sessionStorage.getItem("nombre");
-document.getElementById("nombreNav").innerHTML = `<p>Hola ${nombre}</p>`
+if (nombre == null) {} else {
+    document.getElementById("nombreNav").innerHTML = `<p>Hola ${nombre}</p>`
+}
 
 //LLama a los productos desde que entra la pagina
 fetch(`http://localhost:5000/scv/consultar?categoria=` + "todas", {
@@ -26,6 +28,7 @@ function recuperar(datos) {
                             <img src="${valor.foto}" class="img-fluid" alt="mision" id="imagent">
                             <h4 class="card-title" id="nombre">${valor.nombre}</h4>
                             <p class="card-text" id="descripcion"> ${valor.descripcion_breve}</p>
+                            <h4 class="card-title" id="nombre">$ ${valor.precio}</h4>
                         </div>
                     </div>
                 </a>
@@ -80,6 +83,7 @@ function respuesta(datos) {
                                 <img src="${valor.foto}" class="img-fluid" alt="mision" id="imagent">
                                 <h4 class="card-title" id="nombre">${valor.nombre}</h4>
                                 <p class="card-text" id="descripcion"> ${valor.descripcion_breve}</p>
+                                <h4 class="card-title" id="nombre">$ ${valor.precio}</h4>
                             </div>
                         </div>
                     </a>
@@ -124,6 +128,7 @@ function resultado(respuesta) {
                                 <img src="${valor.foto}" class="img-fluid" alt="mision" id="imagent">
                                 <h4 class="card-title" id="nombre">${valor.nombre}</h4>
                                 <p class="card-text" id="descripcion"> ${valor.descripcion_breve}</p>
+                                <h4 class="card-title" id="nombre">$ ${valor.precio}</h4>
                             </div>
                         </div>
                     </a>

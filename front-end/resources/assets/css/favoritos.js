@@ -31,6 +31,7 @@ function recuperar(datos) {
                                 <img src="${valor.foto}" class="img-fluid" alt="mision" id="imagent">
                                 <h4 class="card-title" id="nombre">${valor.nombre}</h4>
                                 <p class="card-text" id="descripcion"> ${valor.descripcion_breve}</p>
+                                <h4 class="card-title" id="nombre">$ ${valor.precio}</h4>
                             </div>
                         </div>
                     </a>
@@ -60,6 +61,7 @@ function buscar() {
 
 }
 
+
 function resultado(respuesta) {
     var contenido = document.getElementById("contenido")
     if (respuesta.message == "Productos encontrados") {
@@ -67,12 +69,13 @@ function resultado(respuesta) {
         for (let valor of respuesta.data) {
             contenido.innerHTML += `
             <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                    <a href="./producto.html?codido=${valor.codigo_barras}" id="direcccion">
+                    <a href="./productos/producto.html?codido=${valor.codigo_barras}" id="direcccion">
                         <div class="card text-center">
                             <div class="card-body">
                                 <img src="${valor.foto}" class="img-fluid" alt="mision" id="imagent">
                                 <h4 class="card-title" id="nombre">${valor.nombre}</h4>
                                 <p class="card-text" id="descripcion"> ${valor.descripcion_breve}</p>
+                                <h4 class="card-title" id="nombre">$ ${valor.precio}</h4>
                             </div>
                         </div>
                     </a>
