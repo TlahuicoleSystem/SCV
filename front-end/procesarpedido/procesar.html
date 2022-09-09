@@ -77,10 +77,9 @@
         <br>
         <h2>Finalizar Pedido</h2>
         <div class="direccionCli" id="direccionCli">
-            <form>
+            <form class="was-validated">
                 <div class="cuadro">
                     <h3>Ingresa los datos para enviarte tus productos</h3>
-
                     <div class="form-group">
                         <label for="nombre">Nombre y apellidos:</label>
                         <input type="text" class="form-control" id="nombreD" placeholder="Josue Barrales" name="nombrep" required>
@@ -122,7 +121,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label for="nombre">CP:</label>
-                            <input type="number" class="form-control" id="cp" placeholder="90000" name="cp" required>
+                            <input type="number" min="0" class="form-control" id="cp" placeholder="90000" name="cp" required>
                         </div>
                     </div>
                     <div class="row">
@@ -143,7 +142,7 @@
             </form>
         </div>
         <div class="pago" id="pago">
-            <form>
+            <form class="was-validated">
                 <div class=" cuadro">
                     <h3>Metodo de pago</h3>
                     <div class="form-group">

@@ -1,4 +1,6 @@
-import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto, insertarProductoCarrito, consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos, buscar } from '../servicios/productos.servicio'
+import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, 
+    consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto, insertarProductoCarrito, 
+    consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos, buscar, insertarComentario } from '../servicios/productos.servicio'
 
 //consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
@@ -545,6 +547,32 @@ export const buscarPro = async(req, res) => {
             success: false,
             data: null,
             message: "No se encontraron datos"
+        }
+        console.log(e)
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const insertarComent = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const comentario = req.body
+        console.log(req);
+        const idComentario = await insertarComentario(comentario)
+        respuesta = {
+            success: true,
+            data: idComentario,
+            message: "Comentario agregado"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "Comentario no agregado"
         }
         console.log(e)
         status = 400

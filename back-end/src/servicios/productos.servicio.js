@@ -256,3 +256,16 @@ export const buscar = async(texto) => {
 
     return listaProductos
 }
+
+//Ingresar los comentarios
+export const insertarComentario = async(comentario) => {
+    let idNewComent= null
+    try {
+        const conn = await getConnetion()
+        const result = await conn.query(queries.insertarComen, comentario)
+        idNewComent = result.insertId
+    } catch (e) {
+        throw e.message
+    }
+    return idNewComent
+}

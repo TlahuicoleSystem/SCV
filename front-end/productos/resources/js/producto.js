@@ -4,9 +4,9 @@ var nombre = sessionStorage.getItem("nombre");
 
 var url_string = window.location.href;
 var url = new URL(url_string);
-var codigoF = url.searchParams.get("codido");
+var codigoF = url.searchParams.get("codido");//obtenemos de la url el codigo del producto
 
-if (nombre == "null") {} else {
+if (nombre == null) {} else {
     document.getElementById("nombreNav").innerHTML = `<p>Hola ${nombre}</p>`
 }
 if (codigoF == null) {
@@ -26,7 +26,7 @@ if (codigoF == null) {
 }
 
 function recuperar(datos) {
-    precio = datos.data[0].precio
+    precio = datos.data[0].precio;//Asiganmos el precio para despues mandarlo xD
     var division = datos.data[0].descripcion.split("\n");
     var imagen = document.getElementById("imagen")
     var encabezado = document.getElementById("encabezado")
@@ -50,7 +50,6 @@ function recuperar(datos) {
 }
 
 function comprar() {
-
     if (cliente == "null") {
         alert("Ingresa para continuar")
     } else {
@@ -64,7 +63,6 @@ function comprar() {
 }
 
 function carrito() {
-
     if (cliente == "null") {
         alert("Ingresa para continuar")
     } else {
@@ -91,6 +89,7 @@ function carrito() {
                 .then(function(texto) {
                     console.log(texto);
                     alert("Producto agregado al carrito")
+                    window.location = "../carrito/carrito.html";
                 })
                 .catch(function(err) {
                     console.log(err);
