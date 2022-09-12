@@ -8,6 +8,18 @@ if (nombre == null) {
     document.getElementById("nombreNav").innerHTML = `<p>Hola ${nombre}</p>`
 }
 
+fetch(`http://localhost:5000/scv/reporteDatosCli?id=` + cliente, {
+            method: 'GET'
+        })
+        .then(res => res.json())
+        .then(datos => {
+            recuperar1(datos)
+        })
+        .catch(function(err) {
+            alert('Lo sentimos ocurrio error inesperado, intente de nuevo mas tarde')
+            console.log(err);
+        });
+
 //este metodo muestra los datos del perfil
 function mostrar1() {
     document.getElementById('seccion1').style.display = 'block';
@@ -52,6 +64,27 @@ function mostrar3() {
             alert('Lo sentimos ocurrio error inesperado, intente de nuevo mas tarde')
             console.log(err);
         });
+}
+
+function recuperar1(datos){
+    var contenido = document.getElementById("contenido-1")
+    contenido.innerHTML = ''
+    for (let valor of datos.data) {
+        contenido.innerHTML += `
+        <tr>
+            <td>Nombre:</td>
+            <td>Hola ${valor.nombre}</td>
+        </tr>
+        <tr>
+            <td>Telefono:</td>
+            <td>${valor.telefono}</td>
+        </tr>
+         <tr>
+            <td>Correo:</td>
+            <td>${valor.correo}</td>
+        </tr>
+    `;
+    }
 }
 
 function recuperar2(datos) {

@@ -1,7 +1,7 @@
   import { Router } from 'express'
   import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS, insertarD, insertarPe, insertarPa, 
   reporteVen, reporteCom, reporteAbi, insertarProdCarri, consultarCarri, eliminarCarri, eliminarProdCarri, consultarFav, buscarPro, insertarComent,
-  consultarComen } from '../controllers/productos.controller'
+  consultarComen, consultarCliPerfil } from '../controllers/productos.controller'
 
   const upload = require('../libs/storage')
 
@@ -16,6 +16,7 @@
   router.post("/insertarC", insertarC) //insertar clientes
   router.post("/consultarC", consultarC) //consultar cliente para el login
   router.get("/consultarCS", consultarCS) //consultar lista de los clientes
+  router.get("/reporteDatosCli",consultarCliPerfil)//Consultamos los datos de un cliente para perfil
 
   router.post("/insertarD", insertarD) //insertar la direccion de envio
   router.post("/insertarPa", insertarPa) //insertar forma de pago

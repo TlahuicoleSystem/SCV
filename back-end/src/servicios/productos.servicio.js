@@ -111,6 +111,18 @@ export const consultarClientes = async() => {
     return listClients
 }
 
+//Consultar login
+export const consultarClientePerfil = async(id) => {
+    let listClients = null
+    try {
+        const conn = await getConnetion()
+        listClients = await conn.query(queries.consularCliente,id)
+    } catch (e) {
+        throw e.message
+    }
+    return listClients
+}
+
 //guardar la direccion
 export const insertarDireccion = async(direccion) => {
     let idDireccion = null

@@ -1,7 +1,7 @@
 import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, 
     consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto, insertarProductoCarrito, 
     consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos, buscar, insertarComentario,
-    consultarComentario } from '../servicios/productos.servicio'
+    consultarComentario, consultarClientePerfil } from '../servicios/productos.servicio'
 
 //consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
@@ -230,6 +230,30 @@ export const consultarCS = async(req, res) => {
             success: false,
             data: null,
             message: "No se encontraron clientes"
+        }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const consultarCliPerfil = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const { id } = req.query
+        const listClients = await consultarClientePerfil(id)
+        respuesta = {
+            success: true,
+            data: listClients,
+            message: "Datos cliente"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron datos"
         }
         status = 400
     }

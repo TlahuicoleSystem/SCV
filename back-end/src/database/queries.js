@@ -9,6 +9,7 @@ export const queries = {
     agregaru: 'INSERT INTO clientes set ?',
     consultarc: 'SELECT idCliente, nombre FROM clientes WHERE correo = ? and contraseña = ?',
     consultarcs: 'SELECT * FROM clientes',
+    consularCliente: 'SELECT * FROM clientes WHERE idCliente = ?',
 
     mPago: 'INSERT INTO formapago set ?',
     denvio: 'INSERT INTO direccionenvio set ?',
