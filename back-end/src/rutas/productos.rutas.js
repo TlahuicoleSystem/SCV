@@ -1,6 +1,7 @@
   import { Router } from 'express'
   import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS, insertarD, insertarPe, insertarPa, 
-  reporteVen, reporteCom, reporteAbi, insertarProdCarri, consultarCarri, eliminarCarri, eliminarProdCarri, consultarFav, buscarPro, insertarComent } from '../controllers/productos.controller'
+  reporteVen, reporteCom, reporteAbi, insertarProdCarri, consultarCarri, eliminarCarri, eliminarProdCarri, consultarFav, buscarPro, insertarComent,
+  consultarComen } from '../controllers/productos.controller'
 
   const upload = require('../libs/storage')
 
@@ -31,6 +32,7 @@
 
   //Ingresa los comentarios de los clientes
   router.post("/insertComentario",insertarComent)
+  router.get("/consultarComentario",consultarComen)
 
   router.get("/consultarFav", consultarFav) //consulta los favoritos
   router.get("/buscar", buscarPro)//Buscar Productos

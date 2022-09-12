@@ -41,6 +41,7 @@ function entrarRes(datos) {
         sessionStorage.setItem("cliente", datos.data[0].idCliente);
         sessionStorage.setItem("nombre", datos.data[0].nombre);
         alert("Bienvenido")
+        window.location = "../index.html";
     }
 }
 //Validacion 
@@ -117,11 +118,11 @@ function guardar() {
 }
 
 function registrarRes(datos) {
-    console
     if (datos.data == "") {
         alert("Lo sentimos, ocurrio un problema interno")
     } else {
         alert("Registrado Correctamente")
+        window.location = "../index.html";
     }
 }
 

@@ -26,5 +26,6 @@ export const queries = {
     favoritos: 'SELECT pedidos.codigoBarras, productos.foto, productos.nombre, productos.descripcion_breve, productos.precio, COUNT( pedidos.codigoBarras ) AS total FROM pedidos INNER JOIN productos ON pedidos.codigoBarras = productos.codigo_barras GROUP BY pedidos.codigoBarras ORDER BY total DESC',
     buscar: 'SELECT codigo_barras, foto, nombre, descripcion_breve, precio FROM productos WHERE nombre LIKE "%"?"%" ',
 
-    insertarComen: 'INSERT INTO comentarios SET ?'
+    insertarComen: 'INSERT INTO comentarios SET ?',
+    consultarComen: 'SELECT * FROM comentarios ORDER BY fecha DESC'
 }

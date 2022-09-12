@@ -269,3 +269,14 @@ export const insertarComentario = async(comentario) => {
     }
     return idNewComent
 }
+
+export const consultarComentario = async() => {
+    let listaComentario = null
+    try {
+        const conn = await getConnetion()
+        listaComentario = await conn.query(queries.consultarComen)
+    } catch (e) {
+        throw e.message
+    }
+    return listaComentario
+}

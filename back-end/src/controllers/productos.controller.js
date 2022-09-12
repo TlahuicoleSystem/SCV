@@ -1,6 +1,7 @@
 import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, 
     consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto, insertarProductoCarrito, 
-    consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos, buscar, insertarComentario } from '../servicios/productos.servicio'
+    consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos, buscar, insertarComentario,
+    consultarComentario } from '../servicios/productos.servicio'
 
 //consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
@@ -272,7 +273,7 @@ export const insertarPa = async(req, res) => {
     let status = null
     try {
         const pago = req.body
-
+        console.log(pago)
         const id = await insertarPago(pago)
         respuesta = {
             success: true,
@@ -560,7 +561,6 @@ export const insertarComent = async(req, res) => {
     let status = null
     try {
         const comentario = req.body
-        console.log(req);
         const idComentario = await insertarComentario(comentario)
         respuesta = {
             success: true,
@@ -575,6 +575,29 @@ export const insertarComent = async(req, res) => {
             message: "Comentario no agregado"
         }
         console.log(e)
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const consultarComen = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const comentarios = await consultarComentario()
+        respuesta = {
+            success: true,
+            data: comentarios,
+            message: "Comentario"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron comentarios"
+        }
         status = 400
     }
     res.status(status)
