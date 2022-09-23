@@ -1,4 +1,7 @@
-import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto, insertarProductoCarrito, consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos, buscar } from '../servicios/productos.servicio'
+import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, 
+    consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto, insertarProductoCarrito, 
+    consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos, buscar, insertarComentario,
+    consultarComentario, consultarClientePerfil } from '../servicios/productos.servicio'
 
 //consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
@@ -234,6 +237,30 @@ export const consultarCS = async(req, res) => {
     res.json(respuesta)
 }
 
+export const consultarCliPerfil = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const { id } = req.query
+        const listClients = await consultarClientePerfil(id)
+        respuesta = {
+            success: true,
+            data: listClients,
+            message: "Datos cliente"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron datos"
+        }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
 //insertar direccion de envio
 export const insertarD = async(req, res) => {
 
@@ -270,7 +297,7 @@ export const insertarPa = async(req, res) => {
     let status = null
     try {
         const pago = req.body
-
+        console.log(pago)
         const id = await insertarPago(pago)
         respuesta = {
             success: true,
@@ -547,6 +574,54 @@ export const buscarPro = async(req, res) => {
             message: "No se encontraron datos"
         }
         console.log(e)
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const insertarComent = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const comentario = req.body
+        const idComentario = await insertarComentario(comentario)
+        respuesta = {
+            success: true,
+            data: idComentario,
+            message: "Comentario agregado"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "Comentario no agregado"
+        }
+        console.log(e)
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const consultarComen = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const comentarios = await consultarComentario()
+        respuesta = {
+            success: true,
+            data: comentarios,
+            message: "Comentario"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron comentarios"
+        }
         status = 400
     }
     res.status(status)

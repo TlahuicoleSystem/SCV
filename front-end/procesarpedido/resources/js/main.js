@@ -5,7 +5,7 @@ var url = new URL(url_string);
 var codigoP = url.searchParams.get("codido");
 var cantidad = url.searchParams.get("cantidad");
 var precio = url.searchParams.get("precio");
-var nombreD, telefono, envio, calle, numext, numint, barrio, cp, municipio, estado, nombrept, tarjeta, vencimiento, codigos, numOrden, fecha
+var nombreD, telefono, envio, calle, numext, numint, barrio, cp, municipio, estado, nombrept, tarjeta, vencimiento, codigos, numOrden, fecha;
 
 if (nombre == null) {
     alert("Ingresa para continuar")
@@ -24,8 +24,12 @@ function continuar() {
     cp = document.getElementById("cp").value;
     municipio = document.getElementById("municipio").value;
     estado = document.getElementById("estado").value;
-    document.getElementById('direccionCli').style.display = 'none';
-    document.getElementById('pago').style.display = 'block';
+    if(textosPla() != false && numero() != false){
+        document.getElementById('direccionCli').style.display = 'none';
+        document.getElementById('pago').style.display = 'block';
+    }else{
+        alert("Lo sentimos verifica tus datos");
+    }
 }
 
 function finalizar() {
@@ -38,13 +42,14 @@ function finalizar() {
     tarjeta = document.getElementById("tarjeta").value;
     vencimiento = document.getElementById("vencimiento").value;
     codigos = document.getElementById("codigos").value;
-    const cuerpo = new URLSearchParams("nombre=" + nombrept);
-    cuerpo.append('numTarjeta', tarjeta);
-    cuerpo.append('fecha_ven', vencimiento);
-    cuerpo.append('cvv', codigos);
-    cuerpo.append('idCliente', cliente);
-    cuerpo.append('numOrden', numOrden);
-    fetch(`http://localhost:5000/scv/insertarPa`, {
+    if (textoPla() != false){
+        const cuerpo = new URLSearchParams("nombre=" + nombrept);
+        cuerpo.append('numTarjeta', tarjeta);
+        cuerpo.append('fecha_ven', vencimiento);
+        cuerpo.append('cvv', codigos);
+        cuerpo.append('idCliente', cliente);
+        cuerpo.append('numOrden', numOrden);
+        fetch(`http://localhost:5000/scv/insertarPa`, {
             method: 'POST',
             //headers: { 'Content-Type': 'multipart/form-data' },
             body: cuerpo
@@ -55,8 +60,11 @@ function finalizar() {
         })
         .catch(function(err) {
             console.log(err);
-            alert("Lo sentimos ocurrio un error inesperado, intente de nuevo")
+            alert("Lo sentimos ocurrio un error inesperado, intente de nuevo");
         });
+    }else{
+        alert ("Lo sentimos verifica tus datos");
+    }
 }
 
 function finalizar2(datos) {
@@ -143,4 +151,35 @@ function hora() {
         fecha = year + "-" + month + "-" + day
     }
     return fecha
+}
+
+//Validaciones
+ 
+function textosPla(){
+    if(nombreD != "" && calle != "" && numext != "" && barrio != "" && municipio != "" && estado != "" && cp.length == 5){
+        return true
+    }else{
+        return false
+    }
+}
+
+function numero() {
+    const patron = /^\d{10}$/;
+    const res = patron.test(document.getElementById("telefono").value);
+    var telefono = document.getElementById("telefono").value;
+    console.log("Tamaño de consula", telefono.length);
+    if (res == true && telefono.length == 10) {
+        return true;
+    } else {
+        document.getElementById("telefono").focus();
+        return false;
+    }
+}
+
+function textoPla(){
+    if(nombrept != "" && tarjeta.length == 16 && vencimiento.length == 5 && codigos.length == 3){
+        return true;
+    }else{
+        return false;
+    }
 }

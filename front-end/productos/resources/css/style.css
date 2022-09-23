@@ -19,12 +19,13 @@
     padding-top: 1.1%;
 }
 
-.jumbotron {
-    background-color: #f1ca4a !important;
+.jumbotron .imagen img{
+    width: 40%!important;
 }
 
 .jumbotron .texto {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgba(0, 0, 255, 0.753);
 }
 
 .jumbotron .titulo {

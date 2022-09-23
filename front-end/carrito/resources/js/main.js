@@ -25,8 +25,6 @@ fetch(`http://localhost:5000/scv/consultarCarri?idCliente=` + cliente, {
         console.log(err);
     });
 
-
-
 function recuperar(datos) {
     var contenido = document.getElementById("contenido")
     var total = document.getElementById("total")
@@ -74,15 +72,15 @@ function guardar() {
                 method: 'POST',
                 //headers: { 'Content-Type': 'multipart/form-data' },
                 body: cuerpo
-            })
-            .then(res => res.json())
-            .then(datos => {
-                terminado(datos)
-            })
-            .catch(function(err) {
-                console.log(err);
-                alert("Lo sentimos ocurrio un error inesperado, intente de nuevo")
-            });
+        })
+        .then(res => res.json())
+        .then(datos => {
+            terminado(datos)
+        })
+        .catch(function(err) {
+            console.log(err);
+            alert("Lo sentimos ocurrio un error inesperado, intente de nuevo")
+        });
     }
 }
 

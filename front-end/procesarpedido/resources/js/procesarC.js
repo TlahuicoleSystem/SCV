@@ -22,8 +22,12 @@ function continuar() {
     cp = document.getElementById("cp").value;
     municipio = document.getElementById("municipio").value;
     estado = document.getElementById("estado").value;
-    document.getElementById('direccionCli').style.display = 'none';
-    document.getElementById('pago').style.display = 'block';
+    if(textosPla() != false && numero() != false){
+        document.getElementById('direccionCli').style.display = 'none';
+        document.getElementById('pago').style.display = 'block';
+    }else{
+        alert("Lo sentimos verifica tus datos");
+    }
 }
 
 function finalizar() {
@@ -31,25 +35,30 @@ function finalizar() {
     tarjeta = document.getElementById("tarjeta").value;
     vencimiento = document.getElementById("vencimiento").value;
     codigos = document.getElementById("codigos").value;
-    const cuerpo = new URLSearchParams("nombre=" + nombrept);
-    cuerpo.append('numTarjeta', tarjeta);
-    cuerpo.append('fecha_ven', vencimiento);
-    cuerpo.append('cvv', codigos);
-    cuerpo.append('idCliente', cliente);
-    cuerpo.append('numOrden', numOrden);
-    fetch(`http://localhost:5000/scv/insertarPa`, {
-            method: 'POST',
-            //headers: { 'Content-Type': 'multipart/form-data' },
-            body: cuerpo
-        })
-        .then(res => res.json())
-        .then(datos => {
-            finalizar2(datos)
-        })
-        .catch(function(err) {
-            console.log(err);
-            alert("Lo sentimos ocurrio un error inesperado, intente de nuevo")
-        });
+    if (textoPla() != false){
+        const cuerpo = new URLSearchParams("nombre=" + nombrept);
+        cuerpo.append('numTarjeta', tarjeta);
+        cuerpo.append('fecha_ven', vencimiento);
+        cuerpo.append('cvv', codigos);
+        cuerpo.append('idCliente', cliente);
+        cuerpo.append('numOrden', numOrden);
+        fetch(`http://localhost:5000/scv/insertarPa`, {
+                method: 'POST',
+                //headers: { 'Content-Type': 'multipart/form-data' },
+                body: cuerpo
+            })
+            .then(res => res.json())
+            .then(datos => {
+                finalizar2(datos)
+            })
+            .catch(function(err) {
+                console.log(err);
+                alert("Lo sentimos ocurrio un error inesperado, intente de nuevo")
+            });
+    }else{
+        alert("Lo sentimos verifica tus datos");
+    }
+    
 }
 
 function finalizar2(datos) {
@@ -110,5 +119,38 @@ function resultadoLim(datos) {
     if (datos.message == "carrito eliminado") {
         alert("Pedido confirmado")
         window.location = "../index.html";
+    }else{
+        alert("Lo sentimos ocurrio un error, intenta de nuevo mas tarde");
+    }
+}
+
+//Validaciones
+ 
+function textosPla(){
+    if(nombreD != "" && calle != "" && numext != "" && barrio != "" && municipio != "" && estado != "" && cp.length == 5){
+        return true
+    }else{
+        return false
+    }
+}
+
+function numero() {
+    const patron = /^\d{10}$/;
+    const res = patron.test(document.getElementById("telefono").value);
+    var telefono = document.getElementById("telefono").value;
+    console.log("Tamaño de consula", telefono.length);
+    if (res == true && telefono.length == 10) {
+        return true;
+    } else {
+        document.getElementById("telefono").focus();
+        return false;
+    }
+}
+
+function textoPla(){
+    if(nombrept != "" && tarjeta.length == 16 && vencimiento.length == 5 && codigos.length == 3){
+        return true;
+    }else{
+        return false;
     }
 }

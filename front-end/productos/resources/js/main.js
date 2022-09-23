@@ -1,5 +1,7 @@
 var cliente = sessionStorage.getItem("cliente");
 var nombre = sessionStorage.getItem("nombre");
+
+
 if (nombre == null) {} else {
     document.getElementById("nombreNav").innerHTML = `<p>Hola ${nombre}</p>`
 }

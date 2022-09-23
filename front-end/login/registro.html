@@ -84,7 +84,7 @@
             </div>
             <div class="registro" id="registro">
                 <div class="card carta1">
-                    <form>
+                    <form action="" class="was-validated">
                         <div class="form-group">
                             <label for="nombre">Nombre:</label>
                             <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
@@ -99,15 +99,15 @@
                         </div>
                         <div class="form-group">
                             <label for="pwd">Correo:</label>
-                            <input type="text" class="form-control" id="correo" placeholder="ejemplo@dominio.com" name="correo" required>
+                            <input type="email" class="form-control" id="correo" placeholder="ejemplo@dominio.com" name="correo" required>
                         </div>
                         <div class="form-group">
                             <label for="pwd">Contraseña:</label>
-                            <input type="text" class="form-control" id="contraseña" placeholder="Contraseña" name="contraseña" required>
+                            <input type="password" class="form-control" id="contraseña" placeholder="Contraseña" name="contraseña" required>
                         </div>
                         <div class="form-group">
-                            <label for="ccontraseña">Confirmar contraseña:</label>
-                            <input type="text" class="form-control" id="contraseñaC" placeholder="Confirmar Contraseña" name="ccontraseña2" required>
+                            <label for="ccontraseña">Confirmar Contraseña:</label>
+                            <input type="password" class="form-control" id="contraseñaC" placeholder="Confirmar Contraseña" name="ccontraseña2" required>
                         </div>
                         <button type="button" onclick="guardar();" class="btn btn-primary">Registrarse</button>
                     </form>
@@ -115,14 +115,16 @@
             </div>
             <div class="login" id="login">
                 <div class="card carta2">
-                    <form>
+                    <form action="" class="was-validated">
                         <div class="form-group">
                             <label for="pwd">Correo:</label>
-                            <input type="text" class="form-control" id="correo2" placeholder="ejemplo@dominio.com" name="correo3" required>
+                            <input type="email" class="form-control" id="correo2" placeholder="ejemplo@dominio.com" name="correo3" required>
+                            
                         </div>
                         <div class="form-group">
                             <label for="pwd">Contraseña:</label>
-                            <input type="text" class="form-control" id="contraseñaL" placeholder="Contraseña" name="contraseña3" required>
+                            <input type="password" class="form-control" id="contraseñaL" placeholder="Contraseña" name="contraseña3" required>
+                            <div class="invalid-feedback">Ingresa el datos.</div>
                         </div>
                         <button type="button" onclick="entrar()" class="btn btn-primary">Ingresar</button>
                     </form>

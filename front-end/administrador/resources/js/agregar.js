@@ -1,3 +1,5 @@
+var codigo_barras,nombre,descripcion_breve,descripcion,precio,existencias;
+
 function guardar() {
     fetch(`http://localhost:5000/scv/insertarI`, {
             method: 'POST',
@@ -10,18 +12,31 @@ function guardar() {
         })
         .catch(function(err) {
             console.log(err);
+            alert("Lo sentimos, error al carga la imagen intenta de nuevo")
         });
 }
 
 function procesar(datos) {
+    if(datos.message == "Imagen insertada"){
+        if(numerosMa() != false && textosPla() != false){
+            insertarDatos(datos);
+        }else{
+            alert("LLena todos los campos de manera correcta");
+        }
+    }else{
+        alert("Lo sentimos hubo un error al cargar la imagen");
+    }
+}
+
+function insertarDatos(datos){
     var categoria = "default";
-    var codigo_barras = document.getElementById("codigo").value;
-    var nombre = document.getElementById("nombre").value;
     var foto = datos.data
-    var descripcion_breve = document.getElementById("descripcion_breve").value;
-    var descripcion = document.getElementById("descripcion").value;
-    var precio = document.getElementById("precio").value;
-    var existencias = document.getElementById("existencias").value;
+    codigo_barras = document.getElementById("codigo").value;
+    nombre = document.getElementById("nombre").value;
+    descripcion_breve = document.getElementById("descripcion_breve").value;
+    descripcion = document.getElementById("descripcion").value;
+    precio = document.getElementById("precio").value;
+    existencias = document.getElementById("existencias").value;
     if (document.getElementById("categoria1").checked) {
         categoria = "Artes"
     } else {
@@ -31,11 +46,10 @@ function procesar(datos) {
             if (document.getElementById("categoria3").checked) {
                 categoria = "Escolar"
             } else {
-                categoria = "no selecciono nada"
+                categoria = "No selecciono nada"
             }
         }
     }
-
     const cuerpo = new URLSearchParams("codigo_barras=" + codigo_barras);
     cuerpo.append('nombre', nombre)
     cuerpo.append('foto', foto);
@@ -63,5 +77,27 @@ function procesar(datos) {
             console.log(err);
             alert("Error el guardar el producto")
         });
+}
 
+//Validaciones
+function textosPla(){
+    codigo_barras = document.getElementById("codigo").value;
+    nombre = document.getElementById("nombre").value;
+    descripcion_breve = document.getElementById("descripcion_breve").value;
+    descripcion = document.getElementById("descripcion").value;
+    if(codigo_barras != "" && nombre !="" && descripcion_breve !="" && descripcion !=""){
+        return true
+    }else{
+        return false
+    }
+}
+
+function numerosMa(){
+    precio = document.getElementById("precio").value;
+    existencias = document.getElementById("existencias").value;
+    if(precio > 0 && existencias >= 0){
+        return true
+    }else{
+        return false
+    }
 }

@@ -1,5 +1,7 @@
   import { Router } from 'express'
-  import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS, insertarD, insertarPe, insertarPa, reporteVen, reporteCom, reporteAbi, insertarProdCarri, consultarCarri, eliminarCarri, eliminarProdCarri, consultarFav, buscarPro } from '../controllers/productos.controller'
+  import { consultarP, insertarP, eliminarP, actualizarP, insertarI, consultarU, insertarC, consultarC, consultarCS, insertarD, insertarPe, insertarPa, 
+  reporteVen, reporteCom, reporteAbi, insertarProdCarri, consultarCarri, eliminarCarri, eliminarProdCarri, consultarFav, buscarPro, insertarComent,
+  consultarComen, consultarCliPerfil } from '../controllers/productos.controller'
 
   const upload = require('../libs/storage')
 
@@ -14,6 +16,7 @@
   router.post("/insertarC", insertarC) //insertar clientes
   router.post("/consultarC", consultarC) //consultar cliente para el login
   router.get("/consultarCS", consultarCS) //consultar lista de los clientes
+  router.get("/reporteDatosCli",consultarCliPerfil)//Consultamos los datos de un cliente para perfil
 
   router.post("/insertarD", insertarD) //insertar la direccion de envio
   router.post("/insertarPa", insertarPa) //insertar forma de pago
@@ -28,11 +31,13 @@
   router.get("/eliminarCarri", eliminarCarri) //elimina todo el carrito de un cliente
   router.get("/eliminarProdCarri", eliminarProdCarri) //eliminar un producto del carrito
 
+  //Ingresa los comentarios de los clientes
+  router.post("/insertComentario",insertarComent)
+  router.get("/consultarComentario",consultarComen)
+
   router.get("/consultarFav", consultarFav) //consulta los favoritos
+  router.get("/buscar", buscarPro)//Buscar Productos
 
-
-  router.get("/buscar", buscarPro)
-
-  router.post("/insertarI", upload.single('image'), insertarI)
+  router.post("/insertarI", upload.single('image'), insertarI)//Insertar Imagen
 
   export default router

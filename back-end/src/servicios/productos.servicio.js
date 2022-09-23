@@ -111,6 +111,18 @@ export const consultarClientes = async() => {
     return listClients
 }
 
+//Consultar login
+export const consultarClientePerfil = async(id) => {
+    let listClients = null
+    try {
+        const conn = await getConnetion()
+        listClients = await conn.query(queries.consularCliente,id)
+    } catch (e) {
+        throw e.message
+    }
+    return listClients
+}
+
 //guardar la direccion
 export const insertarDireccion = async(direccion) => {
     let idDireccion = null
@@ -144,6 +156,7 @@ export const insertarPedido = async(pedido) => {
     try {
         const conn = await getConnetion()
         const result = await conn.query(queries.insertPedido, pedido)
+        
         idPedido = result.insertId
     } catch (e) {
         throw e.message
@@ -255,4 +268,28 @@ export const buscar = async(texto) => {
     }
 
     return listaProductos
+}
+
+//Ingresar los comentarios
+export const insertarComentario = async(comentario) => {
+    let idNewComent= null
+    try {
+        const conn = await getConnetion()
+        const result = await conn.query(queries.insertarComen, comentario)
+        idNewComent = result.insertId
+    } catch (e) {
+        throw e.message
+    }
+    return idNewComent
+}
+
+export const consultarComentario = async() => {
+    let listaComentario = null
+    try {
+        const conn = await getConnetion()
+        listaComentario = await conn.query(queries.consultarComen)
+    } catch (e) {
+        throw e.message
+    }
+    return listaComentario
 }
