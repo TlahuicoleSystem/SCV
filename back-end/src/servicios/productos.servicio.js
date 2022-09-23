@@ -156,6 +156,7 @@ export const insertarPedido = async(pedido) => {
     try {
         const conn = await getConnetion()
         const result = await conn.query(queries.insertPedido, pedido)
+        
         idPedido = result.insertId
     } catch (e) {
         throw e.message
