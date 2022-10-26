@@ -1,0 +1,61 @@
+.tablero {
+    background-color: #478BA2;
+    padding: 2%;
+}
+
+.tablero .col {
+    margin-bottom: 2%;
+}
+
+.tablero a {
+    text-decoration: none;
+}
+
+.tablero a:hover {
+    text-decoration: none;
+}
+
+.tablero .card {
+    background-image: url(http://drive.google.com/uc?export=view&id=1w7EqkFKTsiCcP5Wnrmr-7qchy5TGmEuw);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 20vh;
+}
+
+.tablero .card:hover {
+    transition: 0.8s;
+    transform: scale(1.10);
+}
+
+.tablero .cuadroInt {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.623);
+    color: white;
+    margin: auto;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 6%;
+}
+
+footer {
+    width: 100%;
+    background-color: rgb(6, 29, 97);
+    color: white;
+}
+
+
+/*plantilla de actualizar y modificar producto*/
+
+.plantilla input {
+    width: 100%;
+}
+
+.plantilla .col {
+    padding: 2%;
+}
+
+.row-1 {
+    border: #478BA2 2px solid;
+    margin: 2%;
+}
