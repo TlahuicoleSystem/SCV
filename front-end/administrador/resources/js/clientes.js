@@ -1,3 +1,8 @@
+var admin = sessionStorage.getItem("admin");
+if (admin == null) {
+    alert("Ingresa para continuar")
+    window.location = './login.html';
+} 
 fetch(`http://localhost:5000/scv/consultarCS`, {
         method: 'GET'
     })

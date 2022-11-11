@@ -167,9 +167,12 @@ export const insertarPedido = async(pedido) => {
 //este metodo es para el reporte de ventas
 export const reporteVentas = async(inicio, fin) => {
     let lista = null
+    //let prueba = "\""+inicio+"\""
+    //let prueba2 = "\""+fin+"\""
+    //console.log(prueba,prueba2)
     try {
         const conn = await getConnetion()
-        lista = await conn.query(queries.reporteVentas, [inicio, fin])
+        lista = await conn.query(queries.reporteVentas, [inicio,fin])
     } catch (e) {
         throw e.message
     }
@@ -292,4 +295,16 @@ export const consultarComentario = async() => {
         throw e.message
     }
     return listaComentario
+}
+
+export const consultarAdmin = async(correo, contraseña) => {
+    let id = null
+    try {
+        const conn = await getConnetion()
+        id = await conn.query(queries.consultarA, [correo, contraseña])
+
+    } catch (e) {
+        throw e.message
+    }
+    return id
 }
