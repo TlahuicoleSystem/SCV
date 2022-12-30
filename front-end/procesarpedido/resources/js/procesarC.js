@@ -5,7 +5,7 @@ var url = new URL(url_string);
 var numOrden = url.searchParams.get("numOrden");
 var nombreD, telefono, envio, calle, numext, numint, barrio, cp, municipio, estado, nombrept, tarjeta, vencimiento, codigos
 
-if (nombre == null) {
+if (nombre == null || nombre == "null") {
     alert("Ingresa para continuar")
 } else {
     document.getElementById("nombreNav").innerHTML = `<p>Hola ${nombre}</p>`

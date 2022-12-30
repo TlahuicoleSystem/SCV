@@ -1,7 +1,7 @@
 let cliente = sessionStorage.getItem("cliente");
 let nombre = sessionStorage.getItem("nombre");
 
-if (nombre == null) {
+if (nombre == null || nombre == "null") {
     alert("Ingresa para continuar")
     window.location = "../login/registro.html";
 } else {
@@ -127,4 +127,11 @@ function recuperar3(datos) {
 
 
 
+}
+
+function salir(){
+    let temporar = null
+    sessionStorage.setItem("cliente", temporar);
+    sessionStorage.setItem("nombre", temporar);
+    window.location = "../index.html";
 }

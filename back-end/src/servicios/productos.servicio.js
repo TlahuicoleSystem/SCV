@@ -167,12 +167,14 @@ export const insertarPedido = async(pedido) => {
 //este metodo es para el reporte de ventas
 export const reporteVentas = async(inicio, fin) => {
     let lista = null
-    //let prueba = "\""+inicio+"\""
-    //let prueba2 = "\""+fin+"\""
-    //console.log(prueba,prueba2)
+    //let prueba1 = "\'"+inicio+"\'"
+    //let prueba2 = "\'"+fin+"\'"
+    //console.log("Prueba ya convertido " + prueba1 + " " + prueba2)
     try {
         const conn = await getConnetion()
+        //lista = await conn.quary("SELECT pedidos.idPedido, productos.nombre, pedidos.idCliente, pedidos.total, pedidos.fechap FROM pedidos INNER JOIN productos ON pedidos.codigoBarras = productos.codigo_barras WHERE pedidos.fechap BETWEEN "+ inicio + " and " + fin)
         lista = await conn.query(queries.reporteVentas, [inicio,fin])
+        console.log("Lista ventas " + lista)
     } catch (e) {
         throw e.message
     }
@@ -197,6 +199,16 @@ export const reporteAbierto = async(idCliente) => {
     try {
         const conn = await getConnetion()
         lista = await conn.query(queries.reporteOrden, idCliente)
+    } catch (e) {
+        throw e.message
+    }
+    return lista
+}
+export const reporteVenAbierto = async() => {
+    let lista = null
+    try {
+        const conn = await getConnetion()
+        lista = await conn.query(queries.reporteOrdenAbi)
     } catch (e) {
         throw e.message
     }
