@@ -65,7 +65,7 @@ function guardar() {
         cuerpo.append('fechap', fecha);
         cuerpo.append('idCliente', cliente);
         cuerpo.append('codigoBarras', codigoBarras[i]);
-        cuerpo.append('status', 'Confirmado');
+        cuerpo.append('status', 'Preparado');
         cuerpo.append('numOrden', numOrden);
         cuerpo.append('total', totalA[i]);
         fetch(`http://localhost:5000/scv/insertarPe`, {
