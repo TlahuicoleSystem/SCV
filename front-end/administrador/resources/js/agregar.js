@@ -1,5 +1,9 @@
 var codigo_barras,nombre,descripcion_breve,descripcion,precio,existencias;
-
+var admin = sessionStorage.getItem("admin");
+if (admin == null) {
+    alert("Ingresa para continuar")
+    window.location = './login.html';
+} 
 function guardar() {
     fetch(`http://localhost:5000/scv/insertarI`, {
             method: 'POST',

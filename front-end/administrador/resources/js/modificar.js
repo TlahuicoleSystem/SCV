@@ -1,3 +1,8 @@
+var admin = sessionStorage.getItem("admin");
+if (admin == null) {
+    alert("Ingresa para continuar")
+    window.location = './login.html';
+} 
 var url_string = window.location.href;
 var url = new URL(url_string);
 var codigoF = url.searchParams.get("codigo");

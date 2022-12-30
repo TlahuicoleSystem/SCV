@@ -7,7 +7,7 @@ var cantidad = url.searchParams.get("cantidad");
 var precio = url.searchParams.get("precio");
 var nombreD, telefono, envio, calle, numext, numint, barrio, cp, municipio, estado, nombrept, tarjeta, vencimiento, codigos, numOrden, fecha;
 
-if (nombre == null) {
+if (nombre == null || nombre == "null") {
     alert("Ingresa para continuar")
 } else {
     document.getElementById("nombreNav").innerHTML = `<p>Hola ${nombre}</p>`
@@ -108,7 +108,7 @@ function finalizar3(datos) {
         cuerpo.append('fechap', fecha);
         cuerpo.append('idCliente', cliente);
         cuerpo.append('codigoBarras', codigoP);
-        cuerpo.append('status', 'Confirmado');
+        cuerpo.append('status', 'Preparado');
         cuerpo.append('numOrden', numOrden);
         cuerpo.append('total', total);
         fetch(`http://localhost:5000/scv/insertarPe`, {

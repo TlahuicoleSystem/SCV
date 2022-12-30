@@ -1,3 +1,8 @@
+var admin = sessionStorage.getItem("admin");
+if (admin == null) {
+    alert("Ingresa para continuar")
+    window.location = './login.html';
+} 
 function artes() {
     llamar("artes")
 }

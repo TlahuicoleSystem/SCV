@@ -1,7 +1,7 @@
 import { consultarProductos, insertarProductos, actualizarProducto, eliminarProducto, consultarUnidad, insertarClientes, consultarCliente, 
     consultarClientes, insertarDireccion, insertarPedido, insertarPago, reporteVentas, reporteCompras, reporteAbierto, insertarProductoCarrito, 
     consultarCarrito, eliminarCarrito, eliminarProductoCarrito, consultarFavoritos, buscar, insertarComentario,
-    consultarComentario, consultarClientePerfil } from '../servicios/productos.servicio'
+    consultarComentario, consultarClientePerfil, consultarAdmin, reporteVenAbierto } from '../servicios/productos.servicio'
 
 //consultar producto dependiendo de la categoria o todas
 export const consultarP = async(req, res) => {
@@ -421,6 +421,28 @@ export const reporteAbi = async(req, res) => {
     res.status(status)
     res.json(respuesta)
 }
+export const reporteVenAbi = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const listVentas = await reporteVenAbierto()
+        respuesta = {
+            success: true,
+            data: listVentas,
+            message: "Lista de pedidos"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron pedidos"
+        }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
 
 export const insertarProdCarri = async(req, res) => {
     let respuesta = null
@@ -621,6 +643,31 @@ export const consultarComen = async(req, res) => {
             success: false,
             data: null,
             message: "No se encontraron comentarios"
+        }
+        status = 400
+    }
+    res.status(status)
+    res.json(respuesta)
+}
+
+export const consultarA = async(req, res) => {
+    let respuesta = null
+    let status = null
+    try {
+        const { correo } = req.body
+        const { contraseña } = req.body
+        const id = await consultarAdmin(correo, contraseña)
+        respuesta = {
+            success: true,
+            data: id,
+            message: "Lista admin"
+        }
+        status = 200
+    } catch (e) {
+        respuesta = {
+            success: false,
+            data: null,
+            message: "No se encontraron admin"
         }
         status = 400
     }

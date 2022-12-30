@@ -6,7 +6,7 @@ var url_string = window.location.href;
 var url = new URL(url_string);
 var codigoF = url.searchParams.get("codido");//obtenemos de la url el codigo del producto
 
-if (nombre == null) {} else {
+if (nombre == null || nombre == "null") {} else {
     document.getElementById("nombreNav").innerHTML = `<p>Hola ${nombre}</p>`
 }
 if (codigoF == null) {
